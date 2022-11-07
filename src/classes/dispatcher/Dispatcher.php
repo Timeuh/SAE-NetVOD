@@ -12,6 +12,19 @@ class Dispatcher{
 
     public function run() : void {
         switch ($this->action){
+
+            case "signin":
+                break;
+
+            case "add-user":
+                break;
+
+            case "displayCatalogue":
+                break;
+
+            case "logout":
+                break;
+
             default:
                 $res = "<h1>Bienvenue !</h1>";
                 $res = $res . "<a href='index.php'>Accueil</a> <br> <br>";
