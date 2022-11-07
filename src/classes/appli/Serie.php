@@ -49,15 +49,14 @@ class Serie
 
     public function render() : string {
         $nbEp = count($this->episodes);
-        $list = "<li>";
-        foreach ($this->episodes as $key => $value) $list = $list . $value->render() . "<br>";
-        $list = $list . "</li>";
+        $list = "";
+        foreach ($this->episodes as $key => $value) $list = $list . "<li>" . $value->render() . "</li><br>";
 
         return "<div id='serie'>
-                    <h3>$this->titre</h3> $nbEp épisodes<br>
-                    Ajouté le $this->dateAjout, sortie en $this->annee
-                    Résumé : $this->resume<br>
-                    Épisodes :<br>$list
+                    <h3>$this->titre</h3> $nbEp épisodes,
+                    Ajouté le $this->dateAjout, sortie en $this->annee<br>
+                    Résumé : $this->resume<br><br>
+                    <h3>Épisodes :</h3>$list
                 </div>";
     }
 }

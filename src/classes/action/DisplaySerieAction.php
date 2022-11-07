@@ -1,8 +1,7 @@
 <?php
 
-namespace classes\action;
+namespace iutnc\netvod\action;
 
-use iutnc\netvod\action\Action;
 use iutnc\netvod\appli\Serie;
 use iutnc\netvod\db\ConnectionFactory;
 

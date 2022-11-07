@@ -2,9 +2,9 @@
 
 namespace iutnc\netvod\dispatcher;
 
-use classes\action\DisplaySerieAction;
 use iutnc\netvod\action\AddUserAction;
 use iutnc\netvod\action\DisplayCatalogue;
+use iutnc\netvod\action\DisplaySerieAction;
 use iutnc\netvod\action\SigninAction;
 
 class Dispatcher{
