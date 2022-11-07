@@ -21,7 +21,7 @@ class SigninAction extends Action {
             $passwd = $_POST['password'];
             $user = Auth::authenticate($email, $passwd);
             if ($user != null) {
-                $html = "Vous êtes connecté(e)";
+                $html = "<p>Vous êtes connecté(e)</p><br><a href='?action=displayCatalogue'>Catalogue</a>";
                 $_SESSION['user'] = serialize($user);
             } else {
                 $html = "Votre email ou mot de passe est incorrect";

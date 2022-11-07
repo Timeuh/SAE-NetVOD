@@ -17,7 +17,8 @@ class DisplayEpisodeAction extends Action
         $info = $get->fetch();
         $html = "<h1> $info[titre] </h1>
                 <p>$info[duree]</p>
-                <p>$info[resume]</p>";
+                <p>$info[resume]</p>
+                ";
         return $html;
     }
 }
