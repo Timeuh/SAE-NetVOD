@@ -2,6 +2,10 @@
 
 namespace iutnc\netvod\action;
 
-class DisplayEpisodeAction{
+use iutnc\netvod\db\ConnectionFactory;
 
+class DisplayEpisodeAction extends Action {
+    public function execute() : string {
+        $id = $_GET['id'];
+    }
 }

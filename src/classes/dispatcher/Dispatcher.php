@@ -40,6 +40,9 @@ class Dispatcher{
                 $res = $catalogue->execute();
                 break;
 
+            case "displayEpisodeAction":
+                break;
+
             case "logout":
                 break;
 
