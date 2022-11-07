@@ -2,8 +2,6 @@
 
 namespace iutnc\netvod\user;
 
-use iutnc\netvod\db\ConnectionFactory;
-
 class User {
 
     private ?string $email, $passwd, $role;
@@ -21,34 +19,5 @@ class User {
     public function __get(string $name) : mixed{
         if (isset($this->$name)) return $this->$name;
         return null;
-    }
-
-    public function getPlaylists() : ?array {
-        $bd = ConnectionFactory::makeConnection();
-        $idUser = "select id from user where email = :email";
-        $query = "select id_pl from user2playlist where id_user = :user";
-        $playlist = [];
-
-        $list = $bd->prepare($query);
-        $id = $bd->prepare($idUser);
-
-        $id->bindParam(':email', $this->email);
-        $id->execute();
-
-        $user = $id->fetch()['id'];
-        $list->bindParam(':user', $user);
-        $list->execute();
-
-        while ($data = $list->fetch()){
-            $pl = "select nom from playlist where id = :id";
-            $res = $bd->prepare($pl);
-            $res->bindParam(':id',$data['id_pl']);
-            $res->execute();
-
-            while ($result = $res->fetch()){
-                $playlist[] = new Playlist($result['nom']);
-            }
-        }
-        return $playlist;
     }
 }
