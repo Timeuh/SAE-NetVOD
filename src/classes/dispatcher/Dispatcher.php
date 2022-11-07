@@ -14,7 +14,8 @@ class Dispatcher{
         switch ($this->action){
             default:
                 $res = "<h1>Bienvenue !</h1>";
-                $res = $res . "<a href='?action=signin'> Connexion </a>" . "<br>";
+                $res = $res . "<a href='index.php'>Accueil</a> <br> <br>";
+                $res = $res . "<a href='?action=signin'> Connexion </a>" . "<br> <br>";
                 $res = $res . "<a href='?action=add-user'> Inscription </a>";
         }
         $this->renderPage($res);
@@ -29,9 +30,6 @@ class Dispatcher{
         </head> 
         <body>
         <h1>NetVOD</h1>
-        <nav>
-            <li><a href='index.php'>Accueil</a></li>
-        </nav>
         $HTML
         </body>
         </html>";
