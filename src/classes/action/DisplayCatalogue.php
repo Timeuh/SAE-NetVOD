@@ -11,16 +11,13 @@ class DisplayCatalogue extends Action
     public function execute(): string
     {
         // Variable containing the result
-        $html = "<a href=''> Accueil </a> <br>";
+        $html = "<a href=''> Accueil </a> <br> <br>";
 
-        // Check if the user is connected
-        //if (Auth::authenticate($_GET["email"], $_GET["password"])) {
-
-
-        if ($stmt = ConnectionFactory::makeConnection() != null) {
+        $db = ConnectionFactory::makeConnection();
+        if ($db != null) {
             // Connection with the db
-            $query = "SELECT img, titre FROM serie";
-            $stmt->prepare($query);
+            $query = "SELECT id, img, titre FROM serie";
+            $stmt = $db->prepare($query);
             $stmt->execute();
 
             while ($data = $stmt->fetch()) {
@@ -29,7 +26,7 @@ class DisplayCatalogue extends Action
 
             return $html;
         }
-        //}
+
         return $html . "Catalogue introuvable";
     }
 }
