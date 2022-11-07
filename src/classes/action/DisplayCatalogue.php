@@ -11,7 +11,7 @@ class DisplayCatalogue extends Action
     public function execute(): string
     {
         // Variable containing the result
-        $html = "<a href=''> Accueil </a> <br> <br>";
+        $html = "<a href='?action='> Accueil </a> <br> <br>";
 
         $db = ConnectionFactory::makeConnection();
         if ($db != null) {
