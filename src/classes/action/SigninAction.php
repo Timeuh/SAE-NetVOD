@@ -18,11 +18,13 @@ class SigninAction extends Action {
         }
         elseif ($this->http_method === "POST") {
             $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
-            $passwd = filter_var($_POST['password']);
-            if (Auth::authenticate($email, $passwd)) {
-                $html = "Youre connected";
+            $passwd = $_POST['password'];
+            $user = Auth::authenticate($email, $passwd);
+            if ($user != null) {
+                $html = "Vous êtes connecté(e)";
+                $_SESSION['user'] = serialize($user);
             } else {
-                $html = "Your email or password is incorrect";
+                $html = "Votre email ou mot de passe est incorrect";
             };
         }
         return $html;
