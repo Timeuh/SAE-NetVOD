@@ -12,15 +12,14 @@ class Serie
     protected ?String $dateAjout;
     protected array $episodes = [];
 
-    public function __construct($id, $titre, $resume, $img, $annee, $dateAjout, $episodes = [])
+    public function __construct($id, $titre, $resume, $annee, $dateAjout)
     {
         $this->id=$id;
         $this->titre=$titre;
         $this->resume=$resume;
-        $this->img=$img;
         $this->annee=$annee;
         $this->dateAjout=$dateAjout;
-        $this->episodes=$episodes;
+        $this->episodes= [];
     }
 
     public function __get(string $name) : mixed{
@@ -30,6 +29,9 @@ class Serie
         return null;
     }
 
+    public function render() : string {
+        return "";
+    }
 
 
 }
