@@ -10,6 +10,7 @@ class Serie
     protected ?String $img;
     protected ?int $annee;
     protected ?String $dateAjout;
+    protected array $episodes = [];
 
     public function __construct($id, $titre, $resume, $img, $annee, $dateAjout)
     {
