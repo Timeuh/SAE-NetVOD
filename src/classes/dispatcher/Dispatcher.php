@@ -41,7 +41,7 @@ class Dispatcher{
                 $res = $catalogue->execute();
                 break;
 
-            case "displayEpisodeAction":
+            case "displayEpisode":
                 $episode = new DisplayEpisodeAction();
                 $res = $episode->execute();
                 break;
