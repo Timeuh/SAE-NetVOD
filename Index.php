@@ -8,5 +8,5 @@ require_once 'vendor/autoload.php';
 session_start();
 ConnectionFactory::setConfig("config.ini");
 
-$dispatcher = new Dispatcher();
+$dispatcher = new Dispatcher("icon.png");
 $dispatcher->run();
