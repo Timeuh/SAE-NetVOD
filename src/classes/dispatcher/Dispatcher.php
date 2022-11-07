@@ -2,6 +2,7 @@
 
 namespace iutnc\netvod\dispatcher;
 
+use iutnc\netvod\action\AddUserAction;
 use iutnc\netvod\action\SigninAction;
 
 class Dispatcher{
@@ -23,6 +24,8 @@ class Dispatcher{
                 break;
 
             case "add-user":
+                $adduser = new AddUserAction();
+                $adduser->execute();
                 break;
 
             case "displayCatalogue":
