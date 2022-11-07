@@ -58,28 +58,4 @@ class Auth {
         if ($goodLength || !$digit || !$special || !$lower || !$upper) return false;
         return true;
     }
-
-    public static function verify_user(int $playlistId) : bool {
-        $user = $_SESSION['user'] ?? null;
-        if ($user != null) {
-            $bd = ConnectionFactory::makeConnection();
-            $mail = $user->email;
-            $role = $user->role;
-            if ($role == 100) return true;
-
-            $userId = $bd->prepare("select id from user where email = :email");
-            $userId->bindParam(':email',$mail);
-            $userId->execute();
-            $id = $userId->fetch()['id'];
-
-            $request = $bd->prepare("select id_pl from user2playlist where id_user = :user");
-            $request->bindParam('user', $id);
-            $request->execute();
-
-            while ($data = $request->fetch()){
-                if ($data['id_pl'] == $playlistId) return true;
-            }
-        }
-        return false;
-    }
 }
