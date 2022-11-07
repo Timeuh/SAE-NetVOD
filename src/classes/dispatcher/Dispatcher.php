@@ -5,9 +5,11 @@ namespace iutnc\netvod\dispatcher;
 class Dispatcher{
 
     private ?string $action;
+    private string $icon;
 
-    public function __construct(){
+    public function __construct(string $icon){
         $this->action = $_GET['action'] ?? "";
+        $this->icon = $icon;
     }
 
     public function run() : void {
@@ -39,7 +41,8 @@ class Dispatcher{
         <html lang='fr'> 
         <head>
         <title>NetVOD</title>
-        <meta charset='UTF-8' />
+        <meta charset='UTF-8'/>
+        <link rel='icon' type='image/png' href='$this->icon'>
         </head> 
         <body>
         <h1>NetVOD</h1>
