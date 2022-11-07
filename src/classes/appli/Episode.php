@@ -4,6 +4,7 @@ namespace iutnc\netvod\appli;
 
 class Episode
 {
+    protected ?int $id;
     protected ?int $numero;
     protected ?String $titre;
     protected ?String $resume;
@@ -11,8 +12,9 @@ class Episode
     protected ?String $file;
     protected ?int $serieId;
 
-    public function __construct($num, $titre, $resume, $duree, $file, $serieId)
+    public function __construct($id, $num, $titre, $resume, $duree, $file, $serieId)
     {
+        $this->id=$id;
         $this->numero=$num;
         $this->titre=$titre;
         $this->resume=$resume;
