@@ -4,6 +4,7 @@ namespace iutnc\netvod\dispatcher;
 
 use iutnc\netvod\action\AddUserAction;
 use iutnc\netvod\action\DisplayCatalogue;
+use iutnc\netvod\action\DisplayEpisodeAction;
 use iutnc\netvod\action\DisplaySerieAction;
 use iutnc\netvod\action\SigninAction;
 
@@ -41,6 +42,8 @@ class Dispatcher{
                 break;
 
             case "displayEpisodeAction":
+                $episode = new DisplayEpisodeAction();
+                $res = $episode->execute();
                 break;
 
             case "logout":
