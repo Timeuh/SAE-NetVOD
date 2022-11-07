@@ -12,7 +12,10 @@ class Dispatcher{
 
     public function run() : void {
         switch ($this->action){
-            default: $res = "<h1>Bienvenue !</h1>";
+            default:
+                $res = "<h1>Bienvenue !</h1>";
+                $res = $res . "<a href='?action=signin'> Connexion </a>" . "<br>";
+                $res = $res . "<a href='?action=add-user'> Inscription </a>";
         }
         $this->renderPage($res);
     }
