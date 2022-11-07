@@ -29,5 +29,8 @@ class Serie
         return null;
     }
 
+    public function render() : string {
+        return "";
+    }
 
 }
