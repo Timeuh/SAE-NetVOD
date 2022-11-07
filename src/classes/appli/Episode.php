@@ -4,12 +4,12 @@ namespace iutnc\netvod\appli;
 
 class Episode
 {
-    protected $numero;
-    protected $titre;
-    protected $resume;
-    protected $duree;
-    protected $file;
-    protected $serieId;
+    protected ?int $numero;
+    protected ?String $titre;
+    protected ?String $resume;
+    protected ?int $duree;
+    protected ?String $file;
+    protected ?int $serieId;
 
     public function __construct($num, $titre, $resume, $duree, $file, $serieId)
     {
