@@ -1,0 +1,11 @@
+{
+  "name": "sae/netvod",
+  "description": "SAE NetVOD",
+  "type": "project",
+
+  "autoload": {
+    "psr-4": {
+      "iutnc\\netvod\\": "src/classes/"
+    }
+  }
+}
