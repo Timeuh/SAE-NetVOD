@@ -11,7 +11,7 @@ class DisplayCatalogue extends Action
     public function execute(): string
     {
         // Variable containing the result
-        $html = "";
+        $html = "<a href=''> Accueil </a> <br>";
 
         // Check if the user is connected
         if (Auth::authenticate($_GET["email"], $_GET["password"])) {
@@ -23,7 +23,7 @@ class DisplayCatalogue extends Action
             $stmt->execute();
 
             while ($data = $stmt->fetch()) {
-                $html = $html . $data["img"] . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a>>";
+                $html = $html . $data["img"] . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
             }
 
             return $html;
