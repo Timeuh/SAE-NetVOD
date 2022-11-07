@@ -12,8 +12,7 @@ class Serie
     protected ?String $dateAjout;
     protected array $episodes = [];
 
-    #TODO : Remplir la serie avec les episodes correspondant
-    public function __construct($id, $titre, $resume, $img, $annee, $dateAjout)
+    public function __construct($id, $titre, $resume, $img, $annee, $dateAjout, $episodes = [])
     {
         $this->id=$id;
         $this->titre=$titre;
@@ -21,6 +20,14 @@ class Serie
         $this->img=$img;
         $this->annee=$annee;
         $this->dateAjout=$dateAjout;
+        $this->episodes=$episodes;
+    }
+
+    public function __get(string $name) : mixed{
+        if (isset($this->$name)) {
+            return $this->$name;
+        }
+        return null;
     }
 
 
