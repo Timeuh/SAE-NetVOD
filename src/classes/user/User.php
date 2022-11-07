@@ -1,9 +1,8 @@
 <?php
 
-namespace iutnc\deefy\user;
+namespace iutnc\netvod\user;
 
-use iutnc\deefy\audio\lists\Playlist;
-use iutnc\deefy\db\ConnectionFactory;
+use iutnc\netvod\db\ConnectionFactory;
 
 class User {
 

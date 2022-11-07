@@ -1,12 +1,6 @@
 <?php
 
-namespace iutnc\deefy\dispatcher;
-
-use iutnc\deefy\action\AddPlaylistAction;
-use iutnc\deefy\action\AddPodcastTrackAction;
-use iutnc\deefy\action\AddUserAction;
-use iutnc\deefy\action\DisplayPlaylistAction;
-use iutnc\deefy\action\SignInAction;
+namespace iutnc\netvod\dispatcher;
 
 class Dispatcher{
 

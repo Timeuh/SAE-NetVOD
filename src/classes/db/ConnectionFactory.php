@@ -1,6 +1,6 @@
 <?php
 
-namespace iutnc\deefy\db;
+namespace iutnc\netvod\db;
 
 class ConnectionFactory {
 

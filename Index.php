@@ -1,7 +1,7 @@
 <?php
 
-use iutnc\deefy\db\ConnectionFactory;
-use iutnc\deefy\dispatcher\Dispatcher;
+use iutnc\netvod\db\ConnectionFactory;
+use iutnc\netvod\dispatcher\Dispatcher;
 
 require_once 'vendor/autoload.php';
 
