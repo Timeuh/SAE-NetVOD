@@ -3,6 +3,7 @@
 namespace iutnc\netvod\dispatcher;
 
 use classes\action\DisplaySerieAction;
+use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\SigninAction;
 
 class Dispatcher{
@@ -32,6 +33,8 @@ class Dispatcher{
                 break;
 
             case "displayCatalogue":
+                $catalogue = new DisplayCatalogue();
+                $res = $catalogue->execute();
                 break;
 
             case "logout":
