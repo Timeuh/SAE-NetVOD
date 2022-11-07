@@ -19,7 +19,7 @@ class DisplayCatalogue extends Action
         $stmt->execute();
 
         while ($data = $stmt->fetch()){
-            $html = $html . $data["img"] . $data["titre"];
+            $html = $html . $data["img"] . "<a href=''>" . $data["titre"] . "</a>>";
         }
 
         return $html;
