@@ -16,6 +16,7 @@ class DisplayCatalogue extends Action
         // Check if the user is connected
         //if (Auth::authenticate($_GET["email"], $_GET["password"])) {
 
+
         if ($stmt = ConnectionFactory::makeConnection() != null) {
             // Connection with the db
             $query = "SELECT img, titre FROM serie";
@@ -29,6 +30,6 @@ class DisplayCatalogue extends Action
             return $html;
         }
         //}
-        return $html;
+        return $html . "Catalogue introuvable";
     }
 }
