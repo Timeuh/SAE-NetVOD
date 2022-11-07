@@ -18,6 +18,7 @@ class DisplaySerieAction extends Action{
 
                 $res = $query->fetch();
                 $serie = new Serie($id, $res['titre'], $res['descriptif'], $res['annee'], $res['date_ajout']);
+                $serie->getEpisodes();
                 return $serie->render();
             }
         }
