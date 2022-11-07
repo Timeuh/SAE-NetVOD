@@ -2,6 +2,8 @@
 
 namespace iutnc\netvod\dispatcher;
 
+use iutnc\netvod\action\SigninAction;
+
 class Dispatcher{
 
     private ?string $action;
@@ -14,6 +16,7 @@ class Dispatcher{
         switch ($this->action){
 
             case "signin":
+                $res = new SigninAction();
                 break;
 
             case "add-user":
