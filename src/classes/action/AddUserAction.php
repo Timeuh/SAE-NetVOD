@@ -25,7 +25,9 @@ class AddUserAction extends Action
             if($_POST['password']===$_POST['confirm']){
                 $res = Auth::register($_POST['email'],$_POST['password']);
                 if($res===true){
-                    $html = "<p>Page de connexion</p>";
+                    $html = <<<EOF
+                    <a href="?action=signin">Connexion</a>
+                    EOF;
                 }else{
                     $html = "<p>Votre inscription a échouée, veuillez réessayer</p>";
                 }
