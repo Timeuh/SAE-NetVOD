@@ -3,6 +3,7 @@
 namespace iutnc\netvod\action;
 
 use iutnc\netvod\db\ConnectionFactory;
+use iutnc\netvod\auth\Auth;
 
 class DisplayCatalogue extends Action
 {
@@ -12,16 +13,21 @@ class DisplayCatalogue extends Action
         // Variable containing the result
         $html = "";
 
-        // Connection with the db
-        $query = "SELECT img, titre FROM serie";
-        $stmt = ConnectionFactory::makeConnection();
-        $stmt->prepare($query);
-        $stmt->execute();
+        // Check if the user is connected
+        if (Auth::authenticate($_GET["email"], $_GET["password"])) {
 
-        while ($data = $stmt->fetch()){
-            $html = $html . $data["img"] . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a>>";
+            // Connection with the db
+            $query = "SELECT img, titre FROM serie";
+            $stmt = ConnectionFactory::makeConnection();
+            $stmt->prepare($query);
+            $stmt->execute();
+
+            while ($data = $stmt->fetch()) {
+                $html = $html . $data["img"] . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a>>";
+            }
+
+            return $html;
         }
-
         return $html;
     }
 }
