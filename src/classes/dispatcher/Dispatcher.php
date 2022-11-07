@@ -46,6 +46,9 @@ class Dispatcher{
                 $res = $episode->execute();
                 break;
 
+            case "add-pref":
+                break;
+
             case "logout":
                 break;
 
