@@ -12,6 +12,7 @@ class Serie
     protected ?String $dateAjout;
     protected array $episodes = [];
 
+    #TODO : Remplir la serie avec les episodes correspondant
     public function __construct($id, $titre, $resume, $img, $annee, $dateAjout)
     {
         $this->id=$id;
