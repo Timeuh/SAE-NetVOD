@@ -27,7 +27,7 @@ class Dispatcher{
         <body>
         <h1>NetVOD</h1>
         <nav>
-            <li><a href='.'>Accueil</a></li>
+            <li><a href='index.php'>Accueil</a></li>
         </nav>
         $HTML
         </body>
