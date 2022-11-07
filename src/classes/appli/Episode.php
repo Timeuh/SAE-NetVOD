@@ -34,6 +34,6 @@ class Episode
 
     public function render() : string {
         return "<a href='?action=displayEpisodeAction&id=$this->id'>Epidode $this->numero : $this->titre </a>
-                <br>$this->resume<br><img src='$this->file' alt='illustration de la vidéo'>";
+                <br>$this->duree minutes<br><img src='$this->file' alt='illustration de la vidéo'>";
     }
 }
