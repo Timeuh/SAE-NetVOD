@@ -18,7 +18,8 @@ class Dispatcher{
         switch ($this->action){
 
             case "signin":
-                $res = new SigninAction();
+                $signin = new SigninAction();
+                $res = $signin->execute();
                 break;
 
             case "add-user":
