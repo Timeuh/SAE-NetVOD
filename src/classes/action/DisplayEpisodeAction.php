@@ -9,7 +9,7 @@ class DisplayEpisodeAction extends Action
     public function execute(): string
     {
         $bd = ConnectionFactory::makeConnection();
-        $query = "select titre, duree, resume from episode where id = :id";
+        $query = "select titre, duree, resume, file from episode where id = :id";
         $get = $bd->prepare($query);
         $id = $_GET['id'];
         $get->bindParam(':id', $id);
@@ -18,7 +18,8 @@ class DisplayEpisodeAction extends Action
         $html = "<h1> $info[titre] </h1>
                 <p>$info[duree]</p>
                 <p>$info[resume]</p>
-                ";
+                <video src='$info[file]'
+                type='video/mp4'</video>";
         return $html;
     }
 }
