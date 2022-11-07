@@ -32,8 +32,8 @@ class Episode
         return null;
     }
 
-    public function render() : string {
+    public function render(string $image) : string {
         return "<a href='?action=displayEpisodeAction&id=$this->id'>Epidode $this->numero : $this->titre </a>
-                <br>$this->duree minutes<br><img src='$this->file' alt='illustration de la vidéo'>";
+                <br>$this->duree minutes<br><img src='img/$image' width='250' height='250' alt='illustration de la vidéo'>";
     }
 }

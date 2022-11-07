@@ -14,13 +14,14 @@ class Serie
     protected ?String $dateAjout;
     protected array $episodes = [];
 
-    public function __construct($id, $titre, $resume, $annee, $dateAjout)
+    public function __construct($id, $titre, $resume, $annee, $dateAjout, $img)
     {
         $this->id=$id;
         $this->titre=$titre;
         $this->resume=$resume;
         $this->annee=$annee;
         $this->dateAjout=$dateAjout;
+        $this->img = $img;
         $this->episodes= [];
     }
 
@@ -50,7 +51,7 @@ class Serie
     public function render() : string {
         $nbEp = count($this->episodes);
         $list = "";
-        foreach ($this->episodes as $key => $value) $list = $list . "<li>" . $value->render() . "</li><br>";
+        foreach ($this->episodes as $key => $value) $list = $list . "<li>" . $value->render($this->img) . "</li><br>";
 
         return "<div id='serie'>
                     <h3>$this->titre</h3> $nbEp épisodes,
