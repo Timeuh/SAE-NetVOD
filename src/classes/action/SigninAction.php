@@ -28,7 +28,7 @@ class SigninAction extends Action {
                 $_SESSION['user'] = serialize($user);
             } else {
                 $html = "Votre email ou mot de passe est incorrect";
-            };
+            }
         }
         return $html;
     }
