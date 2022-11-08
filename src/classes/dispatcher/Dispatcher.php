@@ -64,8 +64,8 @@ class Dispatcher{
             default:
                 if (isset($_SESSION['user'])) $res = "<p>Vous êtes connecté(e)</p><br>
                                                       <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
-                                                      <a href='?action=displaySeriePref'>Favorite series</a> <br> <br>
-                                                      <a href='?action=logout'>Deconnection</a>";
+                                                      <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
+                                                      <a href='?action=logout'>Deconnexion</a>";
 
                 else $res = "<h1>Bienvenue !</h1><a href='index.php'>Accueil</a> 
                         <br><br><a href='?action=signin'> Connexion </a><br><br>

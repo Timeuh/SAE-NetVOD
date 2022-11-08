@@ -27,7 +27,7 @@ class DisplaySeriePrefAction extends Action
             $stmt->execute();
 
             while ($data = $stmt->fetch()){
-                $html = $html .  $data["img"] . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
+                $html = $html .  "<img class='img-serie' src='" . "img/" . $data["img"]. "' width='150' height='150'> " . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
             }
 
             return $html;

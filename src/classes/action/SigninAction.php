@@ -23,8 +23,8 @@ class SigninAction extends Action {
             if ($user != null) {
                 $html = "<p>Vous êtes connecté(e)</p> <br> <br>
                          <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
-                         <a href='?action=displaySeriePref'>Favorite series</a> <br> <br>
-                         <a href='?action=logout'>Deconnection</a>";
+                         <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
+                         <a href='?action=logout'>Deconnexion</a>";
                 $_SESSION['user'] = serialize($user);
             } else {
                 $html = "Votre email ou mot de passe est incorrect";
