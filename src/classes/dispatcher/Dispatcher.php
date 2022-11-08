@@ -2,7 +2,7 @@
 
 namespace iutnc\netvod\dispatcher;
 
-use classes\action\AddPrefAction;
+use iutnc\netvod\action\AddPrefAction;
 use iutnc\netvod\action\AddUserAction;
 use iutnc\netvod\action\CommentAction;
 use iutnc\netvod\action\DisplayCatalogue;
