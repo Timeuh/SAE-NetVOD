@@ -70,6 +70,7 @@ class Dispatcher{
             case "displayCommentaire":
                 $comment = new DisplayCommentaireAction();
                 $res = $comment->execute();
+                break;
 
             case "logout":
                 $deco = new LogoutAction();
