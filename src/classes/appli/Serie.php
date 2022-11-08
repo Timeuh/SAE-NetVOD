@@ -52,7 +52,6 @@ class Serie
         return false;
     }
 
-    //TODO : faire fonction pour calculer moyenne
     function calculerMoyenne($idSerie) : ?float
     {
         $bd = ConnectionFactory::makeConnection();
