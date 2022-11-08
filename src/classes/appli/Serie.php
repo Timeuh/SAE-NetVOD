@@ -62,11 +62,9 @@ class Serie
                     Ajouté le $this->dateAjout, sortie en $this->annee<br><br>
                     Genre : $this->genre, Public : $this->public<br><br>
                     Résumé : $this->resume<br><br>
-<<<<<<< HEAD
+
                     <a href='?action=displayCommentaire'>Afficher Commentaire</a>
-=======
                     <a href='?action=add-pref'><button>Ajouter aux favoris</button></a>
->>>>>>> 1490e04602e720c3c40bb7486238d98937865904
                     <h3>Épisodes :</h3>$list
                 </div>";
     }
