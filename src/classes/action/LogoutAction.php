@@ -9,7 +9,7 @@ class LogoutAction extends Action
     {
         session_destroy();
 
-        return "<a href='?action='>Deconnection</a>";
+        return '<script>document.location.href="?action="</script>';
 
     }
 }
