@@ -7,6 +7,7 @@ use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\DisplayEpisodeAction;
 use iutnc\netvod\action\DisplaySerieAction;
 use iutnc\netvod\action\DisplaySeriePrefAction;
+use iutnc\netvod\action\LogoutAction;
 use iutnc\netvod\action\SigninAction;
 
 class Dispatcher{
@@ -56,10 +57,16 @@ class Dispatcher{
                 break;
 
             case "logout":
+                $deco = new LogoutAction();
+                $res = $deco->execute();
                 break;
 
             default:
-                if (isset($_SESSION['user'])) $res = "<p>Vous êtes connecté(e)</p><br><a href='?action=displayCatalogue'>Catalogue</a>";
+                if (isset($_SESSION['user'])) $res = "<p>Vous êtes connecté(e)</p><br>
+                                                      <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
+                                                      <a href='?action=displaySeriePref'>Favorite series</a> <br> <br>
+                                                      <a href='?action=logout'>Deconnection</a>";
+
                 else $res = "<h1>Bienvenue !</h1><a href='index.php'>Accueil</a> 
                         <br><br><a href='?action=signin'> Connexion </a><br><br>
                         <a href='?action=add-user'> Inscription </a>";
