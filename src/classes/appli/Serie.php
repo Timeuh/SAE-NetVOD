@@ -62,6 +62,7 @@ class Serie
                     Ajouté le $this->dateAjout, sortie en $this->annee<br><br>
                     Genre : $this->genre, Public : $this->public<br><br>
                     Résumé : $this->resume<br><br>
+                    <a href='?action=displayCommentaire'>Afficher Commentaire</a>
                     <h3>Épisodes :</h3>$list
                 </div>";
     }
