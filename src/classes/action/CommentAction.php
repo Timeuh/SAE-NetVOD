@@ -40,8 +40,9 @@ class CommentAction extends Action{
                 $user = unserialize($_SESSION['user']);
                 $user_id = $user->id;
                 if (($db = ConnectionFactory::makeConnection()) != null){
-                    $query = $db->prepare("select note from commentaire where idUser = :id");
+                    $query = $db->prepare("select note from commentaire where idUser = :id and idSerie = :serie");
                     $query->bindParam(':id', $user_id);
+                    $query->bindParam(':serie', $serie);
                     $query->execute();
 
                     if (!$query->fetch()){
