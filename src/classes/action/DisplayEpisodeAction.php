@@ -18,9 +18,10 @@ class DisplayEpisodeAction extends Action
             $html = "<h2> $info[titre] </h2>
                     <p>durée: $info[duree] minutes</p>
                     <p>$info[resume]</p>
-                    <embed src='video/$info[file]' autostart=true>
+                    <embed src='video/$info[file]' autostart=true><br>
                     <a href='?action=comment&id=$id'><button>Commenter</button></a>";
             return $html;
         }
+        return "<h2>Erreur de connexion</h2><br><a href='index.php'>Retour à l'accueil</a>";
     }
 }
