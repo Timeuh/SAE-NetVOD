@@ -52,9 +52,36 @@ class Serie
         return false;
     }
 
+    //TODO : faire fonction pour calculer moyenne
+    function calculerMoyenne($idSerie) : ?float
+    {
+        $bd = ConnectionFactory::makeConnection();
+
+        if ($bd != null ){
+
+            $query = "SELECT AVG(note) as moyenne FROM commentaire WHERE idSerie=:idSerie";
+            $stmt = $bd->prepare($query);
+            $stmt->bindParam("idSerie", $idSerie);
+            $stmt->execute();
+
+            $data = $stmt->fetch();
+
+            if ($data === null){
+                return 0;
+            } else {
+                return $data['moyenne'];
+            }
+
+
+        }
+
+        return 0;
+    }
+
     public function render() : string {
         $nbEp = count($this->episodes);
         $list = "";
+        $moy = $this->calculerMoyenne($this->id);
         foreach ($this->episodes as $key => $value) $list = $list . "<li>" . $value->render($this->img) . "</li><br>";
 
         return "<div id='serie'>
@@ -62,6 +89,8 @@ class Serie
                     Ajouté le $this->dateAjout, sortie en $this->annee<br><br>
                     Genre : $this->genre, Public : $this->public<br><br>
                     Résumé : $this->resume<br><br>
+                    
+                    Note : $moy <br> <br>
 
                     <a href='?action=displayCommentaire'>Afficher Commentaire</a> <br> <br>
                     <a href='?action=add-pref'><button>Ajouter aux favoris</button></a>
