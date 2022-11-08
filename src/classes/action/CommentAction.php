@@ -38,9 +38,10 @@ class CommentAction extends Action{
             $serie = $_GET['serie'] ?? 0;
             if ($serie != 0){
                 $user = unserialize($_SESSION['user']);
+                $user_id = $user->id;
                 if (($db = ConnectionFactory::makeConnection()) != null){
                     $query = $db->prepare("select note from commentaire where idUser = :id");
-                    $query->bindParam(':id', $user->id);
+                    $query->bindParam(':id', $user_id);
                     $query->execute();
 
                     if (!$query->fetch()){
@@ -49,7 +50,7 @@ class CommentAction extends Action{
 
                         $insert = $db->prepare("insert into commentaire(idUser, idSerie, note, commentaire) values (:user, :serie, :note, :commentaire)");
                         $insert->bindParam(':serie', $serie);
-                        $insert->bindParam(':user', $user->id);
+                        $insert->bindParam(':user', $user_id);
                         $insert->bindParam(':note', $note);
                         $insert->bindParam(':commentaire', $commentaire);
 
