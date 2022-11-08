@@ -15,10 +15,9 @@ class DisplayEpisodeAction extends Action
         $get->bindParam(':id', $id);
         $get->execute();
         $info = $get->fetch();
-        $html = "<h1> $info[titre] </h1>
-                <p>$info[duree]</p>
+        $html = "<h2> $info[titre] </h2>
+                <p>durée: $info[duree] minutes</p>
                 <p>$info[resume]</p>
-                <p>$info[file]</p>
                 <embed src='video/$info[file]' autostart=true>";
         return $html;
     }
