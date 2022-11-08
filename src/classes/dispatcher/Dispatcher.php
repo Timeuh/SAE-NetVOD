@@ -9,6 +9,7 @@ use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\DisplayCommentaireAction;
 use iutnc\netvod\action\DisplayEpisodeAction;
 use iutnc\netvod\action\DisplaySerieAction;
+use iutnc\netvod\action\DisplaySerieEnCoursAction;
 use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\LogoutAction;
 use iutnc\netvod\action\SigninAction;
@@ -61,11 +62,14 @@ class Dispatcher{
                 $res = $seriePref->execute();
                 break;
 
+            case "displaySerieEnCours":
+                $serieEnCours = new DisplaySerieEnCoursAction();
+                $res = $serieEnCours->execute();
+                break;
+
             case "displayCommentaire":
                 $comment = new DisplayCommentaireAction();
                 $res = $comment->execute();
-            case "addEnCours":
-                break;
 
             case "logout":
                 $deco = new LogoutAction();
@@ -81,6 +85,7 @@ class Dispatcher{
                 if (isset($_SESSION['user'])) $res = "<p>Vous êtes connecté(e)</p><br>
                                                       <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
                                                       <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
+                                                      <a href='?action=displaySerieEnCours'>Séries En Cours</a> <br> <br>
                                                       <a href='?action=logout'>Deconnexion</a>";
 
                 else $res = "<h1>Bienvenue !</h1><a href='index.php'>Accueil</a> 

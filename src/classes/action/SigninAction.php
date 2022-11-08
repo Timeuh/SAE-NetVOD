@@ -24,6 +24,7 @@ class SigninAction extends Action {
                 $html = "<p>Vous êtes connecté(e)</p>
                          <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
                          <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
+                         <a href='?action=displaySerieEnCours'>Séries En Cours</a> <br> <br>
                          <a href='?action=logout'>Deconnexion</a>";
             } else {
                 $html = "Votre email ou mot de passe est incorrect";

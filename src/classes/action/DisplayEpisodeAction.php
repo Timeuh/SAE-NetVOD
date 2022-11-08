@@ -8,11 +8,12 @@ class DisplayEpisodeAction extends Action
 {
     public function execute(): string
     {
+        $html = "";
         if (($bd = ConnectionFactory::makeConnection()) != null) {
             $query = "select titre, duree, resume, file from episode where id = :id";
             $get = $bd->prepare($query);
-            $id = $_GET['id'];
-            $get->bindParam(':id', $id);
+            $idEp = $_GET['id'];
+            $get->bindParam(':id', $idEp);
             $get->execute();
             $info = $get->fetch();
             $html = "<h2> $info[titre] </h2>
@@ -20,8 +21,8 @@ class DisplayEpisodeAction extends Action
                     <p>$info[resume]</p>
                     <embed src='video/$info[file]' autostart=true><br>
                     <a href='?action=comment&id=$id'><button>Commenter</button></a>";
-            return $html;
         }
+        return $html;
         return "<h2>Erreur de connexion</h2><br><a href='index.php'>Retour à l'accueil</a>";
     }
 }
