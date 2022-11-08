@@ -20,7 +20,8 @@ class Auth {
             $role = $data['role'];
             if (password_verify($password, $bdHash)){
                 $user = new User($email, $bdHash, $role);
-                $_SESSION['user'] = $user;
+                $user->setId();
+                $_SESSION['user'] = serialize($user);
                 return $user;
             }
         }
