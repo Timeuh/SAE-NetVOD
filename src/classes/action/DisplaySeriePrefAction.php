@@ -14,7 +14,9 @@ class DisplaySeriePrefAction extends Action
         $db = ConnectionFactory::makeConnection();
 
         if ($db != null){
-
+            $query = "SELECT img, titre FROM serie INNER JOIN seriePrefUser ON serie.id = seriePrefUser.idSerie WHERE idUser= :user";
+            $stmt = $db->prepare($query);
+            $stmt->bindParam('user', $_GET["id"]);
         }
     }
 }
