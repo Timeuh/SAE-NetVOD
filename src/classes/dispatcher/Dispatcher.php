@@ -61,13 +61,10 @@ class Dispatcher{
                 $res = $seriePref->execute();
                 break;
 
-<<<<<<< HEAD
             case "displayCommentaire":
                 $comment = new DisplayCommentaireAction();
                 $res = $comment->execute();
-=======
             case "addEnCours":
->>>>>>> 1490e04602e720c3c40bb7486238d98937865904
                 break;
 
             case "logout":
