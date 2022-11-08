@@ -21,7 +21,7 @@ class SigninAction extends Action {
             $passwd = $_POST['password'];
             $user = Auth::authenticate($email, $passwd);
             if ($user != null) {
-                $html = "<p>Vous êtes connecté(e)</p> <br> <br>
+                $html = "<p>Vous êtes connecté(e)</p>
                          <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
                          <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
                          <a href='?action=logout'>Deconnexion</a>";
