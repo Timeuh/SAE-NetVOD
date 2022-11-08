@@ -4,6 +4,7 @@ namespace iutnc\netvod\dispatcher;
 
 use classes\action\AddPrefAction;
 use iutnc\netvod\action\AddUserAction;
+use iutnc\netvod\action\CommentAction;
 use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\DisplayEpisodeAction;
 use iutnc\netvod\action\DisplaySerieAction;
@@ -65,6 +66,11 @@ class Dispatcher{
             case "logout":
                 $deco = new LogoutAction();
                 $res = $deco->execute();
+                break;
+
+            case "comment":
+                $comm = new CommentAction();
+                $res = $comm->execute();
                 break;
 
             default:
