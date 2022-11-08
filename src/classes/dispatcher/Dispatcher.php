@@ -56,6 +56,9 @@ class Dispatcher{
                 $res = $seriePref->execute();
                 break;
 
+            case "addEnCours":
+                break;
+
             case "logout":
                 $deco = new LogoutAction();
                 $res = $deco->execute();
