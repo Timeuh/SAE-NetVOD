@@ -59,10 +59,10 @@ class Dispatcher{
                 break;
 
             default:
-                $res = "<h1>Bienvenue !</h1>";
-                $res = $res . "<a href='index.php'>Accueil</a> <br> <br>";
-                $res = $res . "<a href='?action=signin'> Connexion </a>" . "<br> <br>";
-                $res = $res . "<a href='?action=add-user'> Inscription </a>";
+                if (isset($_SESSION['user'])) $res = "<p>Vous êtes connecté(e)</p><br><a href='?action=displayCatalogue'>Catalogue</a>";
+                else $res = "<h1>Bienvenue !</h1><a href='index.php'>Accueil</a> 
+                        <br><br><a href='?action=signin'> Connexion </a><br><br>
+                        <a href='?action=add-user'> Inscription </a>";
         }
         $this->renderPage($res);
     }
