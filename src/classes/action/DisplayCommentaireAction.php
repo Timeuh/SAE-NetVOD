@@ -9,7 +9,10 @@ class DisplayCommentaireAction extends Action
 
     public function execute(): string
     {
-        $html ="<a href='?action='>Accueil</a> <br> <br>" . $_GET["id"];
+
+        $idSerie = unserialize($_SESSION["idSerie"]);
+
+        $html ="<a href='?action='>Accueil</a> <br> <br>";
 
         $db = ConnectionFactory::makeConnection();
 
@@ -21,11 +24,11 @@ class DisplayCommentaireAction extends Action
                       WHERE idSerie=:idSerie";
 
             $stmt = $db->prepare($query);
-            $stmt->bindParam("idSerie", $_GET['id']);
+            $stmt->bindParam("idSerie", $idSerie);
             $stmt->execute();
 
             while ($data = $stmt->fetch()){
-                $html = $html . $data['email'] . "<br>" . $data['commentaire'] . "<br> <br>";
+                $html = $html . $data['email'] . " a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
             }
 
             return $html;

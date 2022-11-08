@@ -19,6 +19,9 @@ class DisplaySerieAction extends Action{
                 if (!$res) return "<h1>Série introuvable</h1><a href='index.php'>Accueil</a>";
                 $serie = new Serie($id, $res['titre'], $res['descriptif'], $res['annee'], $res['date_ajout'], $res['img'], $res['genre'], $res['public']);
                 $serie->getEpisodes();
+
+                $_SESSION['idSerie'] = serialize($id);
+
                 return $serie->render();
             }
         }
