@@ -12,9 +12,11 @@ class Serie
     protected ?String $img;
     protected ?int $annee;
     protected ?String $dateAjout;
+    protected ?string $genre;
+    protected ?string $public;
     protected array $episodes = [];
 
-    public function __construct($id, $titre, $resume, $annee, $dateAjout, $img)
+    public function __construct($id, $titre, $resume, $annee, $dateAjout, $img, $genre, $public)
     {
         $this->id=$id;
         $this->titre=$titre;
@@ -22,6 +24,8 @@ class Serie
         $this->annee=$annee;
         $this->dateAjout=$dateAjout;
         $this->img = $img;
+        $this->genre = $genre;
+        $this->public = $public;
         $this->episodes= [];
     }
 
@@ -55,7 +59,8 @@ class Serie
 
         return "<div id='serie'>
                     <h3>$this->titre</h3> $nbEp épisodes,
-                    Ajouté le $this->dateAjout, sortie en $this->annee<br>
+                    Ajouté le $this->dateAjout, sortie en $this->annee<br><br>
+                    Genre : $this->genre, Public : $this->public<br><br>
                     Résumé : $this->resume<br><br>
                     <h3>Épisodes :</h3>$list
                 </div>";
