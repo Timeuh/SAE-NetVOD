@@ -63,7 +63,7 @@ class Serie
                     Genre : $this->genre, Public : $this->public<br><br>
                     Résumé : $this->resume<br><br>
 
-                    <a href='?action=displayCommentaire'>Afficher Commentaire</a>
+                    <a href='?action=displayCommentaire'>Afficher Commentaire</a> <br> <br>
                     <a href='?action=add-pref'><button>Ajouter aux favoris</button></a>
                     <h3>Épisodes :</h3>$list
                 </div>";
