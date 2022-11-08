@@ -2,7 +2,9 @@
 
 namespace iutnc\netvod\dispatcher;
 
+use classes\action\AddPrefAction;
 use iutnc\netvod\action\AddUserAction;
+use iutnc\netvod\action\CommentAction;
 use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\DisplayCommentaireAction;
 use iutnc\netvod\action\DisplayEpisodeAction;
@@ -50,6 +52,8 @@ class Dispatcher{
                 break;
 
             case "add-pref":
+                $pref = new AddPrefAction();
+                $res = $pref->execute();
                 break;
 
             case "displaySeriePref":
@@ -57,14 +61,23 @@ class Dispatcher{
                 $res = $seriePref->execute();
                 break;
 
+<<<<<<< HEAD
             case "displayCommentaire":
                 $comment = new DisplayCommentaireAction();
                 $res = $comment->execute();
+=======
+            case "addEnCours":
+>>>>>>> 1490e04602e720c3c40bb7486238d98937865904
                 break;
 
             case "logout":
                 $deco = new LogoutAction();
                 $res = $deco->execute();
+                break;
+
+            case "comment":
+                $comm = new CommentAction();
+                $res = $comm->execute();
                 break;
 
             default:
