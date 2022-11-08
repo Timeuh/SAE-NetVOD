@@ -18,8 +18,8 @@ class DisplayEpisodeAction extends Action
         $html = "<h1> $info[titre] </h1>
                 <p>$info[duree]</p>
                 <p>$info[resume]</p>
-                <video src='$info[file]'
-                type='video/mp4'</video>";
+                <p>$info[file]</p>
+                <embed src='video/$info[file]' autostart=true>";
         return $html;
     }
 }

@@ -23,7 +23,7 @@ class ConnectionFactory {
                 $dsn = "$driver:host=$host; dbname=$database";
                 if ($user != "default" && $pass != "default"){
                     try {
-                        self::$db = new \PDO($dsn, $user, $pass);
+                        self::$db = new \PDO($dsn, $user, $pass, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
                     } catch (\Exception $e){
                         print $e;
                     }
