@@ -9,14 +9,36 @@ class DisplaySeriePrefAction extends Action
 
     public function execute(): string
     {
-        $html = "";
+
+        $user = unserialize($_SESSION['user']);
+        $email = $user->__get("email");
+
+        $html = "<a href='?action='> Accueil </a> <br> <br>";
 
         $db = ConnectionFactory::makeConnection();
 
         if ($db != null){
-            $query = "SELECT img, titre FROM serie INNER JOIN seriePrefUser ON serie.id = seriePrefUser.idSerie WHERE idUser= :user";
+            $query = "SELECT serie.id, img, titre FROM serie 
+                      INNER JOIN seriePrefUser ON serie.id = seriePrefUser.idSerie 
+                      INNER JOIN user ON user.id = seriePrefUser.idUser
+                      WHERE email= :email";
             $stmt = $db->prepare($query);
-            $stmt->bindParam('user', $_GET["id"]);
+            $stmt->bindParam('email', $email);
+            $stmt->execute();
+
+            while ($data = $stmt->fetch()){
+                $html = $html .  $data["img"] . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
+            }
+
+            return $html;
         }
+
+        return $html . "Favorites series do not exist";
+        /*
+        $html = "";
+        $html = $html . $_SESSION['mail'];
+
+        return $html;
+        */
     }
 }

@@ -6,6 +6,7 @@ use iutnc\netvod\action\AddUserAction;
 use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\DisplayEpisodeAction;
 use iutnc\netvod\action\DisplaySerieAction;
+use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\SigninAction;
 
 class Dispatcher{
@@ -47,6 +48,11 @@ class Dispatcher{
                 break;
 
             case "add-pref":
+                break;
+
+            case "displaySeriePref":
+                $seriePref = new DisplaySeriePrefAction();
+                $res = $seriePref->execute();
                 break;
 
             case "logout":
