@@ -11,6 +11,12 @@ class DisplayCatalogue extends Action {
         if ($this->http_method == "GET") {
             // Variable containing the result
             $html = "<a href='?action='> Accueil </a> <br> <br>
+                      <form method='post' action='?action=rechercher'>
+                        <input type='search' id='form_recherche' name='Recherche'
+                        placeholder='Rechercher...'
+                        aria-label='Recherche une série dans le site'>
+                        <button type='submit'>Rechercher</button>
+                      </form>
                       <form method='post' action='?action=displayCatalogue'>
                         <select name='tri'>
                             <option value='select' selected='selected'>Trier le catalogue</option>

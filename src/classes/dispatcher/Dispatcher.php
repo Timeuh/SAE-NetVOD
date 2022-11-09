@@ -13,6 +13,7 @@ use iutnc\netvod\action\DisplaySerieAction;
 use iutnc\netvod\action\DisplaySerieEnCoursAction;
 use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\LogoutAction;
+use iutnc\netvod\action\RechercheAction;
 use iutnc\netvod\action\SigninAction;
 
 class Dispatcher{
@@ -73,6 +74,11 @@ class Dispatcher{
             case "displayCommentaire":
                 $comment = new DisplayCommentaireAction();
                 $res = $comment->execute();
+                break;
+
+            case "rechercher":
+                $rechercher = new RechercheAction();
+                $res = $rechercher->execute();
                 break;
 
             case "logout":
