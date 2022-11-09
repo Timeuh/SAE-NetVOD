@@ -35,10 +35,28 @@ class ModifierProfileAction extends Action
                                 <button type='submit'>Changer information</button>
                           </form>";
             } elseif ($this->http_method==="POST"){
-                $query2 = "UPDATE user SET prenom='" .$_POST['prenom'] . "', nom='" . $_POST['nom'] . "', genrePref='" . $_POST['genre'] . "' WHERE id=:id";
-                $stmt2 = $bd->prepare($query2);
-                $stmt2->bindParam("id", $id);
-                $stmt2->execute();
+
+                if (strlen($_POST['prenom'] > 0)){
+                    $query2 = "UPDATE user SET prenom='" .$_POST['prenom'] . "' WHERE id=:id";
+                    $stmt2 = $bd->prepare($query2);
+                    $stmt2->bindParam("id", $id);
+                    $stmt2->execute();
+                }
+
+                if (strlen($_POST['nom'] > 0)){
+                    $query2 = "UPDATE user SET nom='" .$_POST['nom'] . "' WHERE id=:id";
+                    $stmt2 = $bd->prepare($query2);
+                    $stmt2->bindParam("id", $id);
+                    $stmt2->execute();
+                }
+
+                if (strlen($_POST['genre'] > 0)){
+                    $query2 = "UPDATE user SET genrePref='" .$_POST['genre'] . "' WHERE id=:id";
+                    $stmt2 = $bd->prepare($query2);
+                    $stmt2->bindParam("id", $id);
+                    $stmt2->execute();
+                }
+
 
                 $html .= "<script>document.location.href='?action=modifierProfil'</script>";
 
