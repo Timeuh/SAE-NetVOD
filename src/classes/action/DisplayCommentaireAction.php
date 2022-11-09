@@ -21,7 +21,20 @@ class DisplayCommentaireAction extends Action {
             $stmt->execute();
 
             while ($data = $stmt->fetch()){
-                $html = $html . $data['email'] . " a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
+
+                $query2 = "SELECT nom, prenom FROM user WHERE email=:email";
+                $stmt2 = $db->prepare($query2);
+                $stmt2->bindParam("email", $data['email']);
+                $stmt2->execute();
+
+                $data2 = $stmt2->fetch();
+
+                if (strlen($data2['nom']) == 0 || strlen($data2['prenom']) == 0) {
+                    $html = $html . "Inconnu a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
+                } else {
+                    $html = $html . $data2['nom'] . " " . $data2['prenom'] . " a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
+                }
+
             }
 
             return $html . "<br><a href='?action=displaySerie&id=$idSerie'><button>Retour</button></a>";
