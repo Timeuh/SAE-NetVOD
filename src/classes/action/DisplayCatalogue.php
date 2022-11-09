@@ -15,8 +15,8 @@ class DisplayCatalogue extends Action {
         }
     }
 
-    private function display(string $sort = "default"): string {
-        $html = "<a href='?action='> Accueil </a> <br> <br>
+    private function HTMLForm() : string {
+        return "<a href='?action='> Accueil </a> <br> <br>
                      <form method='post' action='?action=rechercher'>
                         <input type='search' id='recherche' name='recherche'
                         placeholder='Rechercher...'>
@@ -30,7 +30,20 @@ class DisplayCatalogue extends Action {
                             <option value='nbEp'>Trier par nombre d'épisodes</option>
                         </select>
                         <button type='submit'>Trier</button>
+                      </form>
+                      <form method='post' action='?action=displayCatalogue'>
+                        <select name='filtre'>
+                            <option value='select' selected='selected'>Filter le catalogue</option>
+                            <option value='titre'>Trier par titre</option>
+                            <option value='dateAjout'>Trier par date d'ajout</option>
+                            <option value='nbEp'>Trier par nombre d'épisodes</option>
+                        </select>
+                        <button type='submit'>Filtrer</button>
                       </form>";
+    }
+
+    private function display(string $sort = "default"): string {
+        $html = $this->HTMLForm();
 
         if (($db = ConnectionFactory::makeConnection()) != null) {
             switch ($sort){
