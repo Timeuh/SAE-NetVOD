@@ -13,7 +13,7 @@ class SigninAction extends Action {
                 <form method='post'>
                     <label>Email: </label><input type='text' name='email' placeholder='toto@gmail.com' required>
                     <label>Password: </label><input type='password' name='password' placeholder='example' required>
-                    <button type='submit'>Validate</button>
+                    <button type='submit'>Valider</button>
                 </form>";
         }
         elseif ($this->http_method === "POST") {
