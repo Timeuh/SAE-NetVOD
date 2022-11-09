@@ -93,6 +93,7 @@ class Serie
 
                     <a href='?action=displayCommentaire'>Afficher Commentaire</a> <br> <br>
                     <a href='?action=add-pref'><button>Ajouter aux favoris</button></a>
+                    <br><a href='?action=displayCatalogue'><button>Retour</button></a>
                     <h3>Épisodes :</h3>$list
                 </div>";
     }
