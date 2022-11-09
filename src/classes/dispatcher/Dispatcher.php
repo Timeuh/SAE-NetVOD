@@ -2,6 +2,7 @@
 
 namespace iutnc\netvod\dispatcher;
 
+use iutnc\netvod\action\AddEnCoursAction;
 use iutnc\netvod\action\AddPrefAction;
 use iutnc\netvod\action\AddUserAction;
 use iutnc\netvod\action\CommentAction;
@@ -48,6 +49,8 @@ class Dispatcher{
                 break;
 
             case "displayEpisode":
+                $addEnCours = new AddEnCoursAction();
+                $res = $addEnCours->execute();
                 $episode = new DisplayEpisodeAction();
                 $res = $episode->execute();
                 break;
