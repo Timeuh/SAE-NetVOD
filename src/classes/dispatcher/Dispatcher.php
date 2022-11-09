@@ -13,6 +13,7 @@ use iutnc\netvod\action\DisplaySerieEnCoursAction;
 use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\LogoutAction;
 use iutnc\netvod\action\SigninAction;
+use iutnc\netvod\action\ModifierProfileAction;
 
 class Dispatcher{
 
@@ -35,6 +36,11 @@ class Dispatcher{
             case "add-user":
                 $adduser = new AddUserAction();
                 $res = $adduser->execute();
+                break;
+
+            case "modifierProfil":
+                $modifUser = new ModifierProfileAction();
+                $res = $modifUser->execute();
                 break;
 
             case "displaySerie":
@@ -84,6 +90,7 @@ class Dispatcher{
 
             default:
                 if (isset($_SESSION['user'])) $res = "<p>Vous êtes connecté(e)</p><br>
+                                                      <a href='?action=modifierProfil'>Modifier Profil</a> <br> <br>
                                                       <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
                                                       <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
                                                       <a href='?action=displaySerieEnCours'>Séries En Cours</a> <br> <br>
