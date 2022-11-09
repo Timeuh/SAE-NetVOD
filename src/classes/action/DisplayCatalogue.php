@@ -11,11 +11,16 @@ class DisplayCatalogue extends Action {
             return $this->display();
         } else {
             $sort = $_POST['tri'] ?? "default";
-            return $this->display($sort);
+            $filter = $_POST['filtre'] ?? "default";
+            $filter_name = $_POST['result'] ?? "default";
+
+            if ($sort != "default") return $this->display($sort);
+            else if ($filter != "default" && $filter_name != "default") return $this->display_filter($filter, $filter_name);
+            else return $this->display();
         }
     }
 
-    private function HTMLForm() : string {
+    private function HTMLForm(): string {
         return "<a href='?action='> Accueil </a> <br> <br>
                      <form method='post' action='?action=rechercher'>
                         <input type='search' id='recherche' name='recherche'
@@ -34,10 +39,10 @@ class DisplayCatalogue extends Action {
                       <form method='post' action='?action=displayCatalogue'>
                         <select name='filtre'>
                             <option value='select' selected='selected'>Filter le catalogue</option>
-                            <option value='titre'>Trier par titre</option>
-                            <option value='dateAjout'>Trier par date d'ajout</option>
-                            <option value='nbEp'>Trier par nombre d'épisodes</option>
+                            <option value='genre'>Filtrer par genre</option>
+                            <option value='public'>Filtrer par public</option>
                         </select>
+                        <input type='text' name='result' placeholder='champ' required>
                         <button type='submit'>Filtrer</button>
                       </form>";
     }
@@ -46,7 +51,7 @@ class DisplayCatalogue extends Action {
         $html = $this->HTMLForm();
 
         if (($db = ConnectionFactory::makeConnection()) != null) {
-            switch ($sort){
+            switch ($sort) {
                 case 'titre':
                     $query = "SELECT id, img, titre FROM serie order by titre";
                     break;
@@ -67,7 +72,8 @@ class DisplayCatalogue extends Action {
             $req = $db->prepare($query);
             $req->execute();
 
-            if ($sort != "nbEp"){
+
+            if ($sort != "nbEp") {
                 while ($data = $req->fetch()) {
                     $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='150' height='150'>
                         <a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
@@ -87,5 +93,35 @@ class DisplayCatalogue extends Action {
             }
         }
         return "<h1>Erreur de base de données</h1><br><a href='Index.php'>Accueil</a>";
+    }
+
+    private function display_filter(string $filter = "default", string $filter_name = "default"): string {
+        $html = $this->HTMLForm();
+
+        if (($db = ConnectionFactory::makeConnection()) != null) {
+            switch ($filter) {
+                case 'genre':
+                    $req = $db->prepare("SELECT id, img, titre FROM serie where genre = :genre");
+                    $req->bindParam(':genre', $filter_name);
+                    break;
+
+                case 'public':
+                    $req = $db->prepare("SELECT id, img, titre FROM serie where public = :public");
+                    $req->bindParam(':public', $filter_name);
+                    break;
+
+                default:
+                    $req = $db->prepare("SELECT id, img, titre FROM serie");
+                    break;
+            }
+            $req->execute();
+
+            while ($data = $req->fetch()) {
+                $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='150' height='150'>
+                        <a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
+            }
+            return $html;
+        }
+        return "";
     }
 }
