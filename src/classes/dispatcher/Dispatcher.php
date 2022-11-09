@@ -22,10 +22,12 @@ class Dispatcher{
 
     private ?string $action;
     private string $icon;
+    private string $style;
 
-    public function __construct(string $icon){
+    public function __construct(string $icon, string $style){
         $this->action = $_GET['action'] ?? "";
         $this->icon = $icon;
+        $this->style = $style;
     }
 
     public function run() : void {
@@ -124,6 +126,7 @@ class Dispatcher{
         <head>
         <title>NetVOD</title>
         <meta charset='UTF-8'/>
+        <link rel='stylesheet' href='$this->style'>
         <link rel='icon' type='image/png' href='$this->icon'>
         </head> 
         <body>

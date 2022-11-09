@@ -8,5 +8,5 @@ require_once 'vendor/autoload.php';
 session_start();
 ConnectionFactory::setConfig("dbconfig.ini");
 
-$dispatcher = new Dispatcher("icon.png");
+$dispatcher = new Dispatcher("icon.png", "CSS/tailwind.css");
 $dispatcher->run();
