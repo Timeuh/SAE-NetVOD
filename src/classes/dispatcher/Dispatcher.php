@@ -15,6 +15,7 @@ use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\LogoutAction;
 use iutnc\netvod\action\RechercheAction;
 use iutnc\netvod\action\SigninAction;
+use iutnc\netvod\action\DelPrefAction;
 use iutnc\netvod\action\ModifierProfileAction;
 
 class Dispatcher{
@@ -64,6 +65,11 @@ class Dispatcher{
 
             case "add-pref":
                 $pref = new AddPrefAction();
+                $res = $pref->execute();
+                break;
+
+            case "del-pref":
+                $pref = new DelPrefAction();
                 $res = $pref->execute();
                 break;
 
@@ -121,7 +127,10 @@ class Dispatcher{
         <link rel='icon' type='image/png' href='$this->icon'>
         </head> 
         <body>
-        <h1>NetVOD</h1>
+        <div id='title'>
+            <img src='$this->icon' alt='logo du site'/>
+            <h1>NetVOD</h1>
+        </div>
         $HTML
         </body>
         </html>";

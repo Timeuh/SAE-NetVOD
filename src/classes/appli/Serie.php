@@ -83,6 +83,21 @@ class Serie
         $moy = $this->calculerMoyenne($this->id);
         foreach ($this->episodes as $key => $value) $list = $list . "<li>" . $value->render($this->img) . "</li><br>";
 
+        $delButton = "";
+        if(($bd = ConnectionFactory::makeConnection()) != null){
+            $idSerie = unserialize($_SESSION['idSerie']);
+            $user = unserialize($_SESSION['user']);
+            $idUser = $user->__get('id');
+
+            $query = $bd->prepare("select idSerie from serieprefuser where idUser = ? and idSerie = ?");
+            $query->bindParam(1, $idUser);
+            $query->bindParam(2, $idSerie);
+            $query->execute();
+            if($query->fetch()){
+                $delButton = "<a href='?action=del-pref'><button>Retirer des favoris</button></a>";
+            }
+        }
+
         return "<div id='serie'>
                     <h3>$this->titre</h3> $nbEp épisodes,
                     Ajouté le $this->dateAjout, sortie en $this->annee<br><br>
@@ -92,7 +107,7 @@ class Serie
                     Note : $moy /5<br> <br>
 
                     <a href='?action=displayCommentaire'>Afficher Commentaire</a> <br> <br>
-                    <a href='?action=add-pref'><button>Ajouter aux favoris</button></a>
+                    <a href='?action=add-pref'><button>Ajouter aux favoris</button></a>$delButton
                     <br><a href='?action=displayCatalogue'><button>Retour</button></a>
                     <h3>Épisodes :</h3>$list
                 </div>";
