@@ -28,8 +28,7 @@ class AddEnCoursAction extends Action
             $get->bindParam(':idSerie', $idSerie['serie_id']);
             $get->bindParam(':idUser', $infoUser['id']);
             $get->execute();
-            $seriePres = $get->fetch();
-            if($seriePres['idSerie'] == null) {
+            if(!$get->fetch()) {
                 $query = "insert into serieEnCoursUser(idSerie, idUser) values($idSerie[serie_id], $infoUser[id])";
                 $get = $bd->prepare($query);
                 $get->execute();
