@@ -106,16 +106,21 @@ class Dispatcher{
                 break;
 
             default:
-                if (isset($_SESSION['user'])) $res = "<p>Vous êtes connecté(e)</p><br>
-                                                      <a href='?action=modifierProfil'>Modifier Profil</a> <br> <br>
-                                                      <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
-                                                      <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
-                                                      <a href='?action=displaySerieEnCours'>Séries En Cours</a> <br> <br>
-                                                      <a href='?action=logout'>Deconnexion</a>";
+                if (isset($_SESSION['user'])) $res = "<p class='text-center text-2xl'>Vous êtes connecté(e)</p><br>
+                                                      <nav class='text-center'>
+                                                      <a href='?action=modifierProfil' class='underline hover:no-underline hover:text-yellow-400'>Modifier Profil</a> <br> <br>
+                                                      <a href='?action=displayCatalogue' class='underline hover:no-underline hover:text-yellow-400'>Catalogue</a> <br> <br>
+                                                      <a href='?action=displaySeriePref' class='underline hover:no-underline hover:text-yellow-400'>Séries Favorites</a> <br> <br>
+                                                      <a href='?action=displaySerieEnCours' class='underline hover:no-underline hover:text-yellow-400'>Séries En Cours</a> <br> <br>
+                                                      <a href='?action=logout' class='underline hover:no-underline hover:text-yellow-400'>Deconnexion</a>
+                                                      </nav>";
 
-                else $res = "<h1>Bienvenue !</h1><a href='index.php'>Accueil</a> 
-                        <br><br><a href='?action=signin'> Connexion </a><br><br>
-                        <a href='?action=add-user'> Inscription </a>";
+                else $res = "<h1 class='text-center text-2xl'>Bienvenue !</h1>
+                        <nav class='text-center'>
+                        <a href='index.php' class='underline hover:no-underline hover:text-yellow-400'>Accueil</a> 
+                        <br><br><a href='?action=signin' class='underline hover:no-underline hover:text-yellow-400'> Connexion </a><br><br>
+                        <a href='?action=add-user' class='underline hover:no-underline hover:text-yellow-400'> Inscription </a>
+                        </nav>";
         }
         $this->renderPage($res);
     }
@@ -130,7 +135,7 @@ class Dispatcher{
         <link rel='icon' type='image/png' href='$this->icon'>
         </head> 
         <body>
-        <div id='title' class='bg-gray-600 flex'>
+        <div id='title' class='bg-gradient-to-r from-yellow-400 to-black flex'>
             <img src='$this->icon' alt='logo du site'/>
             <h1 class='text-6xl'>NetVOD</h1>
         </div>
