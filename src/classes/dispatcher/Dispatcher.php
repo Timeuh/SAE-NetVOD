@@ -2,6 +2,7 @@
 
 namespace iutnc\netvod\dispatcher;
 
+use iutnc\netvod\action\AddEnCoursAction;
 use iutnc\netvod\action\AddPrefAction;
 use iutnc\netvod\action\AddUserAction;
 use iutnc\netvod\action\CommentAction;
@@ -12,6 +13,7 @@ use iutnc\netvod\action\DisplaySerieAction;
 use iutnc\netvod\action\DisplaySerieEnCoursAction;
 use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\LogoutAction;
+use iutnc\netvod\action\RechercheAction;
 use iutnc\netvod\action\SigninAction;
 use iutnc\netvod\action\ModifierProfileAction;
 
@@ -54,6 +56,8 @@ class Dispatcher{
                 break;
 
             case "displayEpisode":
+                $addEnCours = new AddEnCoursAction();
+                $res = $addEnCours->execute();
                 $episode = new DisplayEpisodeAction();
                 $res = $episode->execute();
                 break;
@@ -76,6 +80,11 @@ class Dispatcher{
             case "displayCommentaire":
                 $comment = new DisplayCommentaireAction();
                 $res = $comment->execute();
+                break;
+
+            case "rechercher":
+                $rechercher = new RechercheAction();
+                $res = $rechercher->execute();
                 break;
 
             case "logout":
