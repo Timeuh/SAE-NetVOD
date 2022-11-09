@@ -18,9 +18,8 @@ class DisplayCatalogue extends Action {
     private function display(string $sort = "default"): string {
         $html = "<a href='?action='> Accueil </a> <br> <br>
                      <form method='post' action='?action=rechercher'>
-                        <input type='search' id='form_recherche' name='Recherche'
-                        placeholder='Rechercher...'
-                        aria-label='Recherche une série dans le site'>
+                        <input type='search' id='recherche' name='recherche'
+                        placeholder='Rechercher...'>
                         <button type='submit'>Rechercher</button>
                       </form>
                       <form method='post' action='?action=displayCatalogue'>
