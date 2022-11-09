@@ -29,7 +29,7 @@ class DisplayCommentaireAction extends Action {
 
                 $data2 = $stmt2->fetch();
 
-                if (strlen($data2['nom']) == 0 || strlen($data2['prenom']) == 0) {
+                if ($data2['nom'] == null || $data2['prenom'] == null) {
                     $html = $html . "Inconnu a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
                 } else {
                     $html = $html . $data2['nom'] . " " . $data2['prenom'] . " a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
