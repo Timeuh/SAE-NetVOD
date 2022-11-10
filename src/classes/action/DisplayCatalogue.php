@@ -13,6 +13,7 @@ class DisplayCatalogue extends Action {
             $sort = $_POST['tri'] ?? "default";
             $filter = $_POST['filtre'] ?? "default";
             $filter_name = $_POST['result'] ?? "default";
+            $filter_name = filter_var($filter_name,FILTER_SANITIZE_SPECIAL_CHARS);
 
             if ($sort != "default") return $this->display($sort);
             else if ($filter != "default" && $filter_name != "default") return $this->display_filter($filter, $filter_name);

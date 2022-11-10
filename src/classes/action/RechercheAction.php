@@ -15,7 +15,7 @@ class RechercheAction extends Action
                         <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Rechercher</button>
                       </form> <br>";
         if (($bd = ConnectionFactory::makeConnection()) != null) {
-            $titre = "%".$_POST['recherche']."%";
+            $titre = "%".filter_var($_POST['recherche'],FILTER_SANITIZE_SPECIAL_CHARS)."%";
             $query = "select id, titre, img from serie where titre like :titre";
             $get = $bd->prepare($query);
             $get->bindParam(':titre', $titre);

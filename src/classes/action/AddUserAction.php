@@ -23,7 +23,7 @@ class AddUserAction extends Action
             EOF;
         }elseif ($_SERVER['REQUEST_METHOD']==="POST"){
             if($_POST['password']===$_POST['confirm']){
-                $res = Auth::register($_POST['email'],$_POST['password']);
+                $res = Auth::register(filter_var($_POST['email'],FILTER_SANITIZE_EMAIL),$_POST['password']);
                 if($res===true){
                     $html = <<<EOF
                     <script>document.location.href="?action=signin"</script>

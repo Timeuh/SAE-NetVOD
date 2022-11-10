@@ -37,21 +37,21 @@ class ModifierProfileAction extends Action
             } elseif ($this->http_method==="POST"){
 
                 if (strlen($_POST['prenom'] > 0)){
-                    $query2 = "UPDATE user SET prenom='" .$_POST['prenom'] . "' WHERE id=:id";
+                    $query2 = "UPDATE user SET prenom='" .filter_var($_POST['prenom'],FILTER_SANITIZE_SPECIAL_CHARS) . "' WHERE id=:id";
                     $stmt2 = $bd->prepare($query2);
                     $stmt2->bindParam("id", $id);
                     $stmt2->execute();
                 }
 
                 if (strlen($_POST['nom'] > 0)){
-                    $query2 = "UPDATE user SET nom='" .$_POST['nom'] . "' WHERE id=:id";
+                    $query2 = "UPDATE user SET nom='" .filter_var($_POST['nom'],FILTER_SANITIZE_SPECIAL_CHARS) . "' WHERE id=:id";
                     $stmt2 = $bd->prepare($query2);
                     $stmt2->bindParam("id", $id);
                     $stmt2->execute();
                 }
 
                 if (strlen($_POST['genre'] > 0)){
-                    $query2 = "UPDATE user SET genrePref='" .$_POST['genre'] . "' WHERE id=:id";
+                    $query2 = "UPDATE user SET genrePref='" .filter_var($_POST['genre'],FILTER_SANITIZE_SPECIAL_CHARS) . "' WHERE id=:id";
                     $stmt2 = $bd->prepare($query2);
                     $stmt2->bindParam("id", $id);
                     $stmt2->execute();
