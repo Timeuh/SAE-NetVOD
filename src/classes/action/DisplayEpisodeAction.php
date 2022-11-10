@@ -21,6 +21,6 @@ class DisplayEpisodeAction extends Action{
                     <a href='?action=comment&id=$idEp'><button>Commenter</button></a>
                     <br><a href='?action=displaySerie&id=$serie'><button>Retour</button></a>";
         }
-        return "<h2>Erreur de connexion</h2><br><a href='index.php'>Retour à l'accueil</a>";
+        return "<h2>Erreur de connexion</h2><br><a href='Index.php'>Retour à l'accueil</a>";
     }
 }

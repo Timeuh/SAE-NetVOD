@@ -19,7 +19,7 @@ class AddUserAction extends Action
                     <br><label for="form_confirm">Confirmation du mot de passe</label>
                     <input type="password" id="form_confirm" name="confirm" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black mb-4'>
                     <br><button type="submit" class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mb-4'>S'inscrire</button>
-                    <a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
+                    <a href='Index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
             </form>
             
             EOF;
@@ -33,13 +33,13 @@ class AddUserAction extends Action
                 }else{
                     $html = "<div class='text-center flex flex-wrap content-center flex-col'>
                             <p>Votre inscription a échoué, veuillez réessayer</p>
-                            <a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
+                            <a href='Index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
                             </div>";
                 }
             }else{
                 $html = "<div class='text-center flex flex-wrap content-center flex-col'>
                          <p class='text-2xl text-red-600 mb-4'>Vos deux mots de passe ne correspondent pas, veuillez réessayer</p>
-                         <a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 box-border h-7 w-40'>Retour</a>
+                         <a href='Index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 box-border h-7 w-40'>Retour</a>
                          </div>";
             }
         }

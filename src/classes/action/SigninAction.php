@@ -16,7 +16,7 @@ class SigninAction extends Action {
                     <label>Mot de passe : </label><input type='password' name='password' placeholder='mot de passe' required class='text-black border-2 rounded-md border-yellow-500 mb-4'>
                     <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Valider</button>
                 </form>
-                <br><a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a>
+                <br><a href='Index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a>
                 </div>";
         }
         elseif ($this->http_method === "POST") {
@@ -24,7 +24,7 @@ class SigninAction extends Action {
             $passwd = $_POST['password'];
             $user = Auth::authenticate($email, $passwd);
             if ($user != null) {
-                $html = "<script>document.location.href='index.php'</script>";
+                $html = "<script>document.location.href='Index.php'</script>";
             } else {
                 $html = "<div class='text-center text-red-600'>
                 <p class='text-2xl '>Votre email ou mot de passe est incorrect</p><br>
