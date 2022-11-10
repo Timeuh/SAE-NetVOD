@@ -11,6 +11,7 @@ use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\DisplayCommentaireAction;
 use iutnc\netvod\action\DisplayEpisodeAction;
 use iutnc\netvod\action\DisplaySerieAction;
+use iutnc\netvod\action\DisplaySerieDejaVisionneAction;
 use iutnc\netvod\action\DisplaySerieEnCoursAction;
 use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\LogoutAction;
@@ -86,6 +87,11 @@ class Dispatcher{
                 $res = $serieEnCours->execute();
                 break;
 
+            case "displaySerieDejaVisionne":
+                $serieDejaVisionne = new DisplaySerieDejaVisionneAction();
+                $res = $serieDejaVisionne->execute();
+                break;
+
             case "displayCommentaire":
                 $comment = new DisplayCommentaireAction();
                 $res = $comment->execute();
@@ -123,9 +129,14 @@ class Dispatcher{
 
                 else $res = "<h1 class='text-center text-4xl mb-8'>Bienvenue !</h1>
                         <nav class='text-center'>
+<<<<<<< HEAD
                         <a href='index.php' class='underline hover:no-underline hover:text-yellow-400'>Accueil</a> 
                         <br><br><a href='?action=signin' class='underline hover:no-underline hover:text-yellow-400'> Connexion </a><br><br>
                         <a href='?action=add-user' class='underline hover:no-underline hover:text-yellow-400'> Inscription </a>                        <br><br><a href='?action=activate' class='underline hover:no-underline hover:text-yellow-400'> Activer le compte créé </a><br><br>           
+=======
+                        <br><br><a href='?action=signin' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'> Connexion </a><br><br>
+                        <a href='?action=add-user' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'> Inscription </a>
+>>>>>>> fbb7db13c0e2bd2d1afad6f85b815bd60da20c0e
                         </nav>";
         }
         $this->renderPage($res);

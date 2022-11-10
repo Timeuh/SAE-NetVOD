@@ -13,15 +13,17 @@ class AddUserAction extends Action
         if($_SERVER['REQUEST_METHOD']==="GET"){
 
             $html = <<<EOF
-                <form id="form" method="post" action="?action=add-user">
-                    <label for="form_email">Email:</label>
-                    <input type="email" id="form_email" name="email" placeholder="<email>" required class='border-2 rounded-md border-yellow-500 text-black'>
-                    <label for="form_mdp">Mot de passe:</label>
-                    <input type="password" id="form_mdp" name="password" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black'>
-                    <label for="form_confirm">Confirmation du mot de passe:</label>
-                    <input type="password" id="form_confirm" name="confirm" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black'>
-                    <button type="submit" class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>S'inscrire</button>
+                <form id="form" method="post" action="?action=add-user" class="text-center flex flex-wrap content-center flex-col">
+                    <label for="form_email">Email</label>
+                    <input type="email" id="form_email" name="email" placeholder="<email>" required class='border-2 rounded-md border-yellow-500 text-black mb-4'>
+                    <br><label for="form_mdp">Mot de passe</label>
+                    <input type="password" id="form_mdp" name="password" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black mb-4'>
+                    <br><label for="form_confirm">Confirmation du mot de passe</label>
+                    <input type="password" id="form_confirm" name="confirm" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black mb-4'>
+                    <br><button type="submit" class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mb-4'>S'inscrire</button>
+                    <a href='Index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
             </form>
+            
             EOF;
         }elseif ($_SERVER['REQUEST_METHOD']==="POST"){
 
@@ -46,10 +48,16 @@ class AddUserAction extends Action
                     EOF;
 
                 }else{
-                    $html = "<p>Votre inscription a échouée, veuillez réessayer</p>";
+                    $html = "<div class='text-center flex flex-wrap content-center flex-col'>
+                            <p>Votre inscription a échoué, veuillez réessayer</p>
+                            <a href='Index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
+                            </div>";
                 }
             }else{
-                $html = "<p>Vos deux mots de passe ne correspondent pas, veuillez réessayer</p>";
+                $html = "<div class='text-center flex flex-wrap content-center flex-col'>
+                         <p class='text-2xl text-red-600 mb-4'>Vos deux mots de passe ne correspondent pas, veuillez réessayer</p>
+                         <a href='Index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 box-border h-7 w-40'>Retour</a>
+                         </div>";
             }
         }
         return $html;

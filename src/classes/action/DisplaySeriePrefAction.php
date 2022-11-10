@@ -19,15 +19,15 @@ class DisplaySeriePrefAction extends Action
 
         if ($db != null){
             $query = "SELECT serie.id, img, titre FROM serie 
-                      INNER JOIN seriePrefUser ON serie.id = seriePrefUser.idSerie 
-                      INNER JOIN user ON user.id = seriePrefUser.idUser
+                      INNER JOIN seriepref ON serie.id = seriepref.idSerie 
+                      INNER JOIN user ON user.id = seriepref.idUser
                       WHERE email= :email";
             $stmt = $db->prepare($query);
             $stmt->bindParam('email', $email);
             $stmt->execute();
 
             while ($data = $stmt->fetch()){
-                $html = $html .  "<img class='img-serie' src='" . "img/" . $data["img"]. "' width='150' height='150'> " . "<a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
+                $html = $html .  "<img class='img-serie' src='" . "img/" . $data["img"]. "' width='400' height='400'> " . "<a href='?action=displaySerie&id=" . $data["id"] . "'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mt-1'>" . $data["titre"] . "</button> </a> <br>";
             }
 
             return $html;

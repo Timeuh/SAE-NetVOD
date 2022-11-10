@@ -14,13 +14,13 @@ class AddPrefAction extends \iutnc\netvod\action\Action
         $idUser = $user->__get('id');
 
         if(($bd = ConnectionFactory::makeConnection())!=null){
-            $query = $bd->prepare("select idSerie from seriePrefUser where idUser = ? and idSerie = ?");
+            $query = $bd->prepare("select idSerie from seriepref where idUser = ? and idSerie = ?");
             $query->bindParam(1, $idUser);
             $query->bindParam(2, $idSerie);
             $query->execute();
 
             if(!$query->fetch()){
-                $insert = $bd->prepare("insert into seriePrefUser(idUser, idSerie) values (?,?)");
+                $insert = $bd->prepare("insert into seriepref(idUser, idSerie) values (?,?)");
                 $insert->bindParam(1,$idUser);
                 $insert->bindParam(2,$idSerie);
                 if($insert->execute()) return "<p>Votre série a bien été ajoutée à votre liste des préférences</p>

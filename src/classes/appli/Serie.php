@@ -89,16 +89,17 @@ class Serie
             $user = unserialize($_SESSION['user']);
             $idUser = $user->__get('id');
 
-            $query = $bd->prepare("select idSerie from seriePrefUser where idUser = ? and idSerie = ?");
+            $query = $bd->prepare("select idSerie from seriepref where idUser = ? and idSerie = ?");
             $query->bindParam(1, $idUser);
             $query->bindParam(2, $idSerie);
             $query->execute();
             if($query->fetch()){
-                $delButton = "<a href='?action=del-pref'><button>Retirer des favoris</button></a>";
+                $delButton = "<a href='?action=del-pref'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retirer des favoris</button></a>";
             }
         }
 
         return "<div id='serie'>
+                    <a href='?action=displayCatalogue'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</button></a> <br> <br>
                     <h3>$this->titre</h3> $nbEp épisodes,
                     Ajouté le $this->dateAjout, sortie en $this->annee<br><br>
                     Genre : $this->genre, Public : $this->public<br><br>
@@ -107,8 +108,8 @@ class Serie
                     Note : $moy /5<br> <br>
 
                     <a href='?action=displayCommentaire'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Afficher Commentaire</button></a> <br> <br>
-                    <a href='?action=add-pref'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Ajouter aux favoris</button></a>$delButton <br>
-                    <br><a href='?action=displayCatalogue'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</button></a>
+                    <a href='?action=add-pref'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Ajouter aux favoris</button></a> <br> <br>
+                    $delButton <br> <br>
                     <h3>Épisodes :</h3>$list
                 </div>";
     }

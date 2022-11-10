@@ -21,7 +21,7 @@ class RechercheAction extends Action
             $get->bindParam(':titre', $titre);
             $get->execute();
             while ($data = $get->fetch()){
-                $html = $html .  "<img class='img-serie' src='" . "img/" . $data["img"]. "' width='400' height='400'> " . "<a href='?action=displaySerie&id=" . $data["id"] . "' class='text-white'>" . $data["titre"] . "</a> <br> <br>";
+                $html = $html .  "<img class='img-serie' src='" . "img/" . $data["img"]. "' width='400' height='400'> " . "<a href='?action=displaySerie&id=" . $data["id"] . "'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mt-1'>" . $data["titre"] . "</button> </a> <br> <br>";
             }
         }
         return $html;

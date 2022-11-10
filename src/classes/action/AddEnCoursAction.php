@@ -23,13 +23,13 @@ class AddEnCoursAction extends Action
             $get->bindParam(':email', $email);
             $get->execute();
             $infoUser = $get->fetch();
-            $query = " select idSerie, idUser from serieEnCoursUser where idSerie=:idSerie and idUser=:idUser";
+            $query = " select idSerie, idUser from serieencours where idSerie=:idSerie and idUser=:idUser";
             $get = $bd->prepare($query);
             $get->bindParam(':idSerie', $idSerie['serie_id']);
             $get->bindParam(':idUser', $infoUser['id']);
             $get->execute();
             if(!$get->fetch()) {
-                $query = "insert into serieEnCoursUser(idSerie, idUser) values($idSerie[serie_id], $infoUser[id])";
+                $query = "insert into serieencours(idSerie, idUser) values($idSerie[serie_id], $infoUser[id])";
                 $get = $bd->prepare($query);
                 $get->execute();
                 $msg = "Série bien ajouté";

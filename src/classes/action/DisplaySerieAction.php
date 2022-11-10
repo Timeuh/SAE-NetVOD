@@ -16,7 +16,7 @@ class DisplaySerieAction extends Action{
                 $query->execute();
 
                 $res = $query->fetch();
-                if (!$res) return "<h1>Série introuvable</h1><a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a>";
+                if (!$res) return "<h1>Série introuvable</h1><a href='Index.php'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</button></a>";
                 $serie = new Serie($id, $res['titre'], $res['descriptif'], $res['annee'], $res['date_ajout'], $res['img'], $res['genre'], $res['public']);
                 $serie->getEpisodes();
 
@@ -25,6 +25,6 @@ class DisplaySerieAction extends Action{
                 return $serie->render();
             }
         }
-        return "<h1>Série introuvable</h1><a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a>";
+        return "<h1>Série introuvable</h1><a href='Index.php'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</button></a>";
     }
 }
