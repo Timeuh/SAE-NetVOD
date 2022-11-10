@@ -29,10 +29,10 @@ class ModifierProfileAction extends Action
 
             if ($this->http_method === "GET"){
                 $html .= "<form method='post'>
-                                <label>Prenom : </label> <input type='text' name='prenom'> <br> <br>
-                                <label>Nom : </label> <input type='text' name='nom'> <br> <br>                               
-                                <label>Genre Préféré : </label> <input type='text' name='genre'> <br> <br>
-                                <button type='submit'>Changer information</button>
+                                <label>Prenom : </label> <input type='text' name='prenom' class='rounded-md'> <br> <br>
+                                <label>Nom : </label> <input type='text' name='nom' class='rounded-md'> <br> <br>                               
+                                <label>Genre Préféré : </label> <input type='text' name='genre' class='rounded-md'> <br> <br>
+                                <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Changer information</button>
                           </form>";
             } elseif ($this->http_method==="POST"){
 
