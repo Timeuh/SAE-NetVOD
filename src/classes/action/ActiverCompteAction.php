@@ -26,7 +26,7 @@ class ActiverCompteAction extends Action
 
                 if ($token != null) {
 
-                    $queryGetUser = "SELECT * FROM user WHERE activation_token=:token";
+                    $queryGetUser = "SELECT * FROM user WHERE activation_token=:token AND activation_expires > NOW()";
                     $stmt1 = $db->prepare($queryGetUser);
                     $stmt1->bindParam('token', $token);
                     $stmt1->execute();
