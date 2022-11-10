@@ -31,10 +31,16 @@ class AddUserAction extends Action
                     <script>document.location.href="?action=signin"</script>
                     EOF;
                 }else{
-                    $html = "<p>Votre inscription a échouée, veuillez réessayer</p>";
+                    $html = "<div class='text-center flex flex-wrap content-center flex-col'>
+                            <p>Votre inscription a échoué, veuillez réessayer</p>
+                            <a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
+                            </div>";
                 }
             }else{
-                $html = "<p>Vos deux mots de passe ne correspondent pas, veuillez réessayer</p>";
+                $html = "<div class='text-center flex flex-wrap content-center flex-col'>
+                         <p class='text-2xl text-red-600 mb-4'>Vos deux mots de passe ne correspondent pas, veuillez réessayer</p>
+                         <a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 box-border h-7 w-40'>Retour</a>
+                         </div>";
             }
         }
         return $html;
