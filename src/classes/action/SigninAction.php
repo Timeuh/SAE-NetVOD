@@ -17,7 +17,7 @@ class SigninAction extends Action {
                 </form>";
         }
         elseif ($this->http_method === "POST") {
-            $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
+            $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
             $passwd = $_POST['password'];
             $user = Auth::authenticate($email, $passwd);
             if ($user != null) {

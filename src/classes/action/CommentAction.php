@@ -49,7 +49,7 @@ class CommentAction extends Action{
                         $note = filter_var($_POST['note'], FILTER_SANITIZE_NUMBER_INT);
                         if ($note < 1) $note = 1;
                         if ($note > 5) $note = 5;
-                        $commentaire = filter_var($_POST['commentaire'], FILTER_SANITIZE_STRING);
+                        $commentaire = filter_var($_POST['commentaire'], FILTER_SANITIZE_SPECIAL_CHARS);
 
                         $insert = $db->prepare("insert into commentaire(idUser, idSerie, note, commentaire) values (:user, :serie, :note, :commentaire)");
                         $insert->bindParam(':serie', $serie);

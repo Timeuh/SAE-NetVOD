@@ -13,6 +13,7 @@ class DisplayCatalogue extends Action {
             $sort = $_POST['tri'] ?? "default";
             $filter = $_POST['filtre'] ?? "default";
             $filter_name = $_POST['result'] ?? "default";
+            $filter_name = filter_var($filter_name,FILTER_SANITIZE_SPECIAL_CHARS);
 
             if ($sort != "default") return $this->display($sort);
             else if ($filter != "default" && $filter_name != "default") return $this->display_filter($filter, $filter_name);
@@ -21,29 +22,29 @@ class DisplayCatalogue extends Action {
     }
 
     private function HTMLForm(): string {
-        return "<a href='?action='> Accueil </a> <br> <br>
+        return "<a href='?action='><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'> Accueil </button> </a> <br> <br>
                      <form method='post' action='?action=rechercher'>
-                        <input type='search' id='recherche' name='recherche'
-                        placeholder='Rechercher...'>
-                        <button type='submit'>Rechercher</button>
+                        <input type='search' id='recherche' name='recherche' class='border-2 rounded-md bg-grey-300 text-black'
+                        placeholder='Rechercher...' size='150'>
+                        <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Rechercher</button>
                       </form>
                       <form method='post' action='?action=displayCatalogue'>
-                        <select name='tri'>
+                        <select name='tri' class='text-gray-400'>
                             <option value='select' selected='selected'>Trier le catalogue</option>
                             <option value='titre'>Trier par titre</option>
                             <option value='dateAjout'>Trier par date d'ajout</option>
                             <option value='nbEp'>Trier par nombre d'épisodes</option>
                         </select>
-                        <button type='submit'>Trier</button>
+                        <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Trier</button>
                       </form>
                       <form method='post' action='?action=displayCatalogue'>
-                        <select name='filtre'>
+                        <select name='filtre' class='text-gray-400'>
                             <option value='select' selected='selected'>Filter le catalogue</option>
                             <option value='genre'>Filtrer par genre</option>
                             <option value='public'>Filtrer par public</option>
                         </select>
-                        <input type='text' name='result' placeholder='champ' required>
-                        <button type='submit'>Filtrer</button>
+                        <input type='text' name='result' placeholder='champ' required class='text-black'>
+                        <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Filtrer</button> <br> <br>
                       </form>";
     }
 
@@ -75,7 +76,7 @@ class DisplayCatalogue extends Action {
 
             if ($sort != "nbEp") {
                 while ($data = $req->fetch()) {
-                    $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='150' height='150'>
+                    $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='400' height='400'>
                         <a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
                 }
                 return $html;
@@ -86,7 +87,7 @@ class DisplayCatalogue extends Action {
                     $qr->execute();
 
                     $res = $qr->fetch();
-                    $html = $html . "<img class='img-serie' src='" . "img/" . $res["img"] . "' width='150' height='150'>
+                    $html = $html . "<img class='img-serie' src='" . "img/" . $res["img"] . "' width='400' height='400'>
                         <a href='?action=displaySerie&id=" . $res["id"] . "'>" . $res["titre"] . "</a> <br>";
                 }
                 return $html;
@@ -117,7 +118,7 @@ class DisplayCatalogue extends Action {
             $req->execute();
 
             while ($data = $req->fetch()) {
-                $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='150' height='150'>
+                $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='400' height='400'>
                         <a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
             }
             return $html;
