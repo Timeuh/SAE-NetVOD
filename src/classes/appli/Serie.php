@@ -100,12 +100,15 @@ class Serie
 
         return "<div id='serie'>
                     <a href='?action=displayCatalogue'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</button></a> <br> <br>
-                    <h1 class='text-3xl'>$this->titre</h1> <p class='text-yellow-500'>$nbEp épisodes,
-                    Ajouté le $this->dateAjout, sortie en $this->annee<br><br>
-                    Genre : $this->genre, Public : $this->public<br><br>
-                    Résumé : $this->resume<br> <br>
+                    <h1 class='text-3xl'>$this->titre</h1>
+                    <p> <span class='text-yellow-500'> $nbEp épisodes</span> , Ajouté le 
+                    <span class='text-yellow-500'>$this->dateAjout</span>, sortie en 
+                    <span class='text-yellow-500'>$this->annee</span><br><br>
+                    Genre : <span class='text-yellow-500'>$this->genre</span>
+                    , Public : <span class='text-yellow-500'>$this->public</span><br><br>
+                    Résumé : <span class='text-yellow-500'>$this->resume</span><br> <br>
                     
-                    Note : $moy /5</p> <br>
+                    Note : <span class='text-yellow-500'>$moy/5</span></p> <br>
 
                     <a href='?action=displayCommentaire'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Afficher Commentaire</button></a> <br> <br>
                     <a href='?action=add-pref'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mr-5'>Ajouter aux favoris</button></a>
