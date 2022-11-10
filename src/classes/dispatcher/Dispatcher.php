@@ -145,6 +145,7 @@ class Dispatcher{
         <link rel='stylesheet' href='$this->style'>
         <link rel='icon' type='image/png' href='$this->icon'>
         </head> 
+        <div id='page-container' class='mb-auto h-10 justify-between'>
         <body class='text-white'>
         <div id='title' class='bg-gradient-to-r from-yellow-500 to-black flex mb-2'>
             <img src='$this->icon' alt='logo du site'/>
@@ -152,6 +153,17 @@ class Dispatcher{
         </div>
         $HTML
         </body>
+        <footer class='fixed bottom-0 h-10 bg-black text-center'>
+        <div class='grid grid-cols-7 justify-items-center'>
+        <b>@Copyright IutNC</b>
+        <b>Site réalisé par</b>
+        <b class='text-yellow-500'>Timothée Brindejonc</b>
+        <b class='text-yellow-500'>Ronan Cunin</b>
+        <b class='text-yellow-500'>Lancelot Doan</b>
+        <b class='text-yellow-500'>Noam Gomes-Odent</b>
+        </div>
+        </footer>
+        </div>
         </html>";
     }
 }
