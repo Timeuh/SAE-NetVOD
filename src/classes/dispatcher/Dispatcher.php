@@ -125,7 +125,7 @@ class Dispatcher{
                         <nav class='text-center'>
                         <a href='index.php' class='underline hover:no-underline hover:text-yellow-400'>Accueil</a> 
                         <br><br><a href='?action=signin' class='underline hover:no-underline hover:text-yellow-400'> Connexion </a><br><br>
-                        <a href='?action=add-user' class='underline hover:no-underline hover:text-yellow-400'> Inscription </a>
+                        <a href='?action=add-user' class='underline hover:no-underline hover:text-yellow-400'> Inscription </a>                        <br><br><a href='?action=activate' class='underline hover:no-underline hover:text-yellow-400'> Activer le compte créé </a><br><br>           
                         </nav>";
         }
         $this->renderPage($res);
