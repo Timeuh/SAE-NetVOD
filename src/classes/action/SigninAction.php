@@ -11,9 +11,9 @@ class SigninAction extends Action {
         if($this->http_method === "GET") {
             $html = "
                 <div class='text-center'>
-                <form method='post' class='text-center'>
-                    <label>Identifiant : </label><input type='email' name='email' placeholder='toto@gmail.com' required class='text-black border-2 rounded-md border-yellow-500'>
-                    <label>Mot de passe : </label><input type='password' name='password' placeholder='mot de passe' required class='text-black border-2 rounded-md border-yellow-500'>
+                <form method='post' class='text-center flex flex-wrap content-center flex-col'>
+                    <label>Identifiant : </label><input type='email' name='email' placeholder='toto@gmail.com' required class='text-black border-2 rounded-md border-yellow-500 mb-4'>
+                    <label>Mot de passe : </label><input type='password' name='password' placeholder='mot de passe' required class='text-black border-2 rounded-md border-yellow-500 mb-4'>
                     <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Valider</button>
                 </form>
                 <br><a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a>

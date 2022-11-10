@@ -18,8 +18,10 @@ class AddUserAction extends Action
                     <input type="password" id="form_mdp" name="password" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black mb-4'>
                     <br><label for="form_confirm">Confirmation du mot de passe</label>
                     <input type="password" id="form_confirm" name="confirm" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black mb-4'>
-                    <br><button type="submit" class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>S'inscrire</button>
+                    <br><button type="submit" class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mb-4'>S'inscrire</button>
+                    <a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a>
             </form>
+            
             EOF;
         }elseif ($_SERVER['REQUEST_METHOD']==="POST"){
             if($_POST['password']===$_POST['confirm']){
