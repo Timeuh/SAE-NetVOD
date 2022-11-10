@@ -118,13 +118,13 @@ class Dispatcher{
                 break;
 
             default:
-                if (isset($_SESSION['user'])) $res = "<p class='text-center text-2xl'>Vous êtes connecté(e)</p><br>
+                if (isset($_SESSION['user'])) $res = "<p class='text-center text-4xl'>Vous êtes connecté(e)</p><br>
                                                       <nav class='text-center'>
-                                                      <a href='?action=modifierProfil' class='underline hover:no-underline hover:text-yellow-400'>Modifier Profil</a> <br> <br>
-                                                      <a href='?action=displayCatalogue' class='underline hover:no-underline hover:text-yellow-400'>Catalogue</a> <br> <br>
-                                                      <a href='?action=displaySeriePref' class='underline hover:no-underline hover:text-yellow-400'>Séries Favorites</a> <br> <br>
-                                                      <a href='?action=displaySerieEnCours' class='underline hover:no-underline hover:text-yellow-400'>Séries En Cours</a> <br> <br>
-                                                      <a href='?action=logout' class='underline hover:no-underline hover:text-yellow-400'>Deconnexion</a>
+                                                      <a href='?action=modifierProfil' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Modifier Profil</a> <br> <br>
+                                                      <a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Catalogue</a> <br> <br>
+                                                      <a href='?action=displaySeriePref' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Séries Favorites</a> <br> <br>
+                                                      <a href='?action=displaySerieEnCours' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Séries En Cours</a> <br> <br>
+                                                      <a href='?action=logout' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Deconnexion</a>
                                                       </nav>";
 
                 else $res = "<h1 class='text-center text-4xl mb-8'>Bienvenue !</h1>

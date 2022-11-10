@@ -8,7 +8,7 @@ class DisplayCommentaireAction extends Action {
 
     public function execute(): string {
         $idSerie = unserialize($_SESSION["idSerie"]);
-        $html ="<a href='?action='>Accueil</a> <br> <br>";
+        $html ="<a href='?action=displaySerie&id=$idSerie'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</button></a><br>";
 
         if (($db = ConnectionFactory::makeConnection()) != null ){
             $query = "SELECT email, commentaire FROM commentaire
@@ -37,7 +37,7 @@ class DisplayCommentaireAction extends Action {
 
             }
 
-            return $html . "<br><a href='?action=displaySerie&id=$idSerie'><button>Retour</button></a>";
+            return $html;
         }
 
         return $html . "Connexion a la base perdue";
