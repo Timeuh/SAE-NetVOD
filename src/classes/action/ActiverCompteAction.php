@@ -9,7 +9,7 @@ class ActiverCompteAction extends Action
 
     public function execute(): string
     {
-        $html ="<a href='?action='>Accueil</a> <br> <br>";
+        $html ="";
 
         $db = ConnectionFactory::makeConnection();
 
