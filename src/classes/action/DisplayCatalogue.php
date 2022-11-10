@@ -24,12 +24,12 @@ class DisplayCatalogue extends Action {
     private function HTMLForm(): string {
         return "<a href='?action='><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'> Accueil </button> </a> <br> <br>
                      <form method='post' action='?action=rechercher'>
-                        <input type='search' id='recherche' name='recherche' class='border-2 rounded-md bg-grey-300 text-black'
+                        <input type='search' id='recherche' name='recherche' class='text-black border-2 rounded-md border-yellow-500 mb-4'
                         placeholder='Rechercher...' size='150'>
                         <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Rechercher</button>
                       </form>
                       <form method='post' action='?action=displayCatalogue'>
-                        <select name='tri' class='text-gray-400'>
+                        <select name='tri' class='text-gray-400 text-black border-2 rounded-md border-yellow-500 mb-4'>
                             <option value='select' selected='selected'>Trier le catalogue</option>
                             <option value='titre'>Trier par titre</option>
                             <option value='dateAjout'>Trier par date d'ajout</option>
@@ -38,12 +38,12 @@ class DisplayCatalogue extends Action {
                         <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Trier</button>
                       </form>
                       <form method='post' action='?action=displayCatalogue'>
-                        <select name='filtre' class='text-gray-400'>
+                        <select name='filtre' class='text-gray-400 text-black border-2 rounded-md border-yellow-500 mb-4'>
                             <option value='select' selected='selected'>Filter le catalogue</option>
                             <option value='genre'>Filtrer par genre</option>
                             <option value='public'>Filtrer par public</option>
                         </select>
-                        <input type='text' name='result' placeholder='champ' required class='text-black'>
+                        <input type='text' name='result' placeholder='champ' required class='text-black text-black border-2 rounded-md border-yellow-500 mb-4'>
                         <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mt-1'>Filtrer</button> <br> <br>
                       </form>";
     }

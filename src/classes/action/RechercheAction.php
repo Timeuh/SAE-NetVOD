@@ -10,10 +10,10 @@ class RechercheAction extends Action
     {
         $html = "<a href='?action=' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'> Accueil </a> <br> <br>
                       <form method='post' action='?action=rechercher'>
-                        <input type='search' id='recherche' name='recherche' class='border-2 rounded-md bg-grey-300 text-black'
+                        <input type='search' id='recherche' name='recherche' class='text-black border-2 rounded-md border-yellow-500 mb-4'
                         placeholder='Rechercher...' size='150'>
                         <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Rechercher</button>
-                      </form> <br> <br>";
+                      </form> <br>";
         if (($bd = ConnectionFactory::makeConnection()) != null) {
             $titre = "%".filter_var($_POST['recherche'],FILTER_SANITIZE_SPECIAL_CHARS)."%";
             $query = "select id, titre, img from serie where titre like :titre";
