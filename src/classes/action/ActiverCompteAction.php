@@ -21,11 +21,12 @@ class ActiverCompteAction extends Action
                           </form>";
 
             } elseif($this->http_method === "POST"){
-                $token = unserialize($_SESSION['token']);
+                $token = $_GET['token'];
+                $time = "date('Y-m-d H:i:s',time())" ;
 
                 if ($token != null) {
 
-                    $queryGetUser = "SELECT * FROM user WHERE activation_token=:token AND activation_expires > date('Y-m-d H:i:s',time())";
+                    $queryGetUser = "SELECT * FROM user WHERE activation_token=:token";
                     $stmt1 = $db->prepare($queryGetUser);
                     $stmt1->bindParam('token', $token);
                     $stmt1->execute();
@@ -34,7 +35,7 @@ class ActiverCompteAction extends Action
 
                     $queryUpdate = "UPDATE user SET active = 1, activation_token=null WHERE activation_token=:token2";
                     $stmt2 = $db->prepare($queryUpdate);
-                    $stmt2->bindParam('token2', $token);
+                    $stmt2->bindParam(':token2', $token);
                     $stmt2->execute();
 
                     $html .= "<script>document.location.href='?action='</script>";

@@ -3,6 +3,7 @@
 namespace iutnc\netvod\action;
 
 use iutnc\netvod\auth\Auth;
+use iutnc\netvod\db\ConnectionFactory;
 
 class AddUserAction extends Action
 {
@@ -10,6 +11,7 @@ class AddUserAction extends Action
     public function execute(): string
     {
         if($_SERVER['REQUEST_METHOD']==="GET"){
+
             $html = <<<EOF
                 <form id="form" method="post" action="?action=add-user">
                     <label for="form_email">Email:</label>
@@ -22,12 +24,27 @@ class AddUserAction extends Action
             </form>
             EOF;
         }elseif ($_SERVER['REQUEST_METHOD']==="POST"){
+
             if($_POST['password']===$_POST['confirm']){
+
                 $res = Auth::register(filter_var($_POST['email'],FILTER_SANITIZE_EMAIL),$_POST['password']);
                 if($res===true){
+
+                    $mail = filter_var($_POST['email']);
+
+                    $db = ConnectionFactory::makeConnection();
+                    $query = "SELECT activation_token FROM user WHERE email=:mail";
+                    $stmt = $db->prepare($query);
+                    $stmt->bindParam("mail", $mail);
+                    $stmt->execute();
+                    $data = $stmt->fetch();
+
+                    $token = $data['activation_token'];
+
                     $html = <<<EOF
-                    <script>document.location.href="?action="</script>
+                    <script>document.location.href="?action=activate&token=$token"</script>
                     EOF;
+
                 }else{
                     $html = "<p>Votre inscription a échouée, veuillez réessayer</p>";
                 }

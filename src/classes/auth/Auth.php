@@ -61,8 +61,6 @@ class Auth {
 
                 $do->execute();
 
-                $_SESSION['token'] = $activateToken;
-
                 return true;
             }
         }
