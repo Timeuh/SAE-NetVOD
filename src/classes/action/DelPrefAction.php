@@ -14,7 +14,7 @@ class DelPrefAction extends Action
         $idUser = $user->__get('id');
 
         if(($bd = ConnectionFactory::makeConnection())!=null){
-            $delete = $bd->prepare("delete from seriePref where idUser = ? and idSerie = ?");
+            $delete = $bd->prepare("delete from seriepref where idUser = ? and idSerie = ?");
             $delete->bindParam(1,$idUser);
             $delete->bindParam(2,$idSerie);
             if($delete->execute()) return "<p>Votre série a bien été retirée de votre liste des préférences</p>

@@ -19,7 +19,7 @@ class   DisplaySerieEnCoursAction
             $get->bindParam(':email', $email);
             $get->execute();
             $infoUser = $get->fetch();
-            $query = "select id, titre, img from serie inner join serieEnCours on serie.id = serieEnCours.idSerie where id = idSerie and iduser =:iduser";
+            $query = "select id, titre, img from serie inner join serieencours on serie.id = serieencours.idSerie where id = idSerie and iduser =:iduser";
             $get = $bd->prepare($query);
             $get->bindParam(':iduser', $infoUser['id']);
             $get->execute();
