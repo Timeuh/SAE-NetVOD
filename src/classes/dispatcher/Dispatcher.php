@@ -117,7 +117,6 @@ class Dispatcher{
 
                 else $res = "<h1 class='text-center text-4xl mb-8'>Bienvenue !</h1>
                         <nav class='text-center'>
-                        <a href='index.php' class='underline hover:no-underline hover:text-yellow-400'>Accueil</a> 
                         <br><br><a href='?action=signin' class='underline hover:no-underline hover:text-yellow-400'> Connexion </a><br><br>
                         <a href='?action=add-user' class='underline hover:no-underline hover:text-yellow-400'> Inscription </a>
                         </nav>";
