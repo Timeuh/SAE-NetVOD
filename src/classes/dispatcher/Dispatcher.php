@@ -2,6 +2,7 @@
 
 namespace iutnc\netvod\dispatcher;
 
+use iutnc\netvod\action\ActiverCompteAction;
 use iutnc\netvod\action\AddEnCoursAction;
 use iutnc\netvod\action\AddPrefAction;
 use iutnc\netvod\action\AddUserAction;
@@ -103,6 +104,11 @@ class Dispatcher{
             case "comment":
                 $comm = new CommentAction();
                 $res = $comm->execute();
+                break;
+
+            case "activate":
+                $activate = new ActiverCompteAction();
+                $res = $activate->execute();
                 break;
 
             default:

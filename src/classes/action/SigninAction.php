@@ -28,7 +28,7 @@ class SigninAction extends Action {
                          <a href='?action=displaySerieEnCours'>Séries En Cours</a> <br> <br>
                          <a href='?action=logout'>Deconnexion</a>";
             } else {
-                $html = "Votre email ou mot de passe est incorrect";
+                $html = "Votre email ou mot de passe est incorrect ou votre compte n est pas actif";
             }
         }
         return $html;
