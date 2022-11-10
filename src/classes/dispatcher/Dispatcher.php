@@ -127,17 +127,17 @@ class Dispatcher{
 
     public function renderPage(string $HTML) : void{
         print "<!DOCTYPE html>
-        <html lang='fr' class='bg-white'> 
+        <html lang='fr' class='bg-black'> 
         <head>
         <title>NetVOD</title>
         <meta charset='UTF-8'/>
         <link rel='stylesheet' href='$this->style'>
         <link rel='icon' type='image/png' href='$this->icon'>
         </head> 
-        <body>
-        <div id='title' class='bg-gradient-to-r from-yellow-400 to-black flex'>
+        <body class='text-white'>
+        <div id='title' class='bg-gradient-to-r from-yellow-500 to-black flex'>
             <img src='$this->icon' alt='logo du site'/>
-            <h1 class='text-6xl'>NetVOD</h1>
+            <h1 class='text-6xl text-white'>NetVOD</h1>
         </div>
         $HTML
         </body>
