@@ -19,7 +19,7 @@ class Auth {
             $bdHash = $data['passwd'];
             $role = $data['role'];
             $actif = $data['active'];
-            if (password_verify($password, $bdHash) && $actif === 1){
+            if (password_verify($password, $bdHash) && $actif == 1){
                 $user = new User($email, $bdHash, $role);
                 $user->setId();
                 $_SESSION['user'] = serialize($user);

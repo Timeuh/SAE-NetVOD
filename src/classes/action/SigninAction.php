@@ -26,7 +26,6 @@ class SigninAction extends Action {
             if ($user != null) {
                 $html = "<script>document.location.href='Index.php'</script>";
             } else {
-
                 $html = "<div class='text-center text-red-600'>
                 <p class='text-2xl '>Votre email ou mot de passe est incorrect</p><br>
                 <a href='?action=signin' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-white'>Retour</a>
