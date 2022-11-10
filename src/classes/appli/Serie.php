@@ -89,7 +89,7 @@ class Serie
             $user = unserialize($_SESSION['user']);
             $idUser = $user->__get('id');
 
-            $query = $bd->prepare("select idSerie from seriePrefUser where idUser = ? and idSerie = ?");
+            $query = $bd->prepare("select idSerie from seriePref where idUser = ? and idSerie = ?");
             $query->bindParam(1, $idUser);
             $query->bindParam(2, $idSerie);
             $query->execute();

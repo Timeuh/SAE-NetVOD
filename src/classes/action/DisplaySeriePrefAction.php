@@ -19,8 +19,8 @@ class DisplaySeriePrefAction extends Action
 
         if ($db != null){
             $query = "SELECT serie.id, img, titre FROM serie 
-                      INNER JOIN seriePrefUser ON serie.id = seriePrefUser.idSerie 
-                      INNER JOIN user ON user.id = seriePrefUser.idUser
+                      INNER JOIN seriePref ON serie.id = seriePref.idSerie 
+                      INNER JOIN user ON user.id = seriePref.idUser
                       WHERE email= :email";
             $stmt = $db->prepare($query);
             $stmt->bindParam('email', $email);

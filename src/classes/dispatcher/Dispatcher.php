@@ -10,6 +10,7 @@ use iutnc\netvod\action\DisplayCatalogue;
 use iutnc\netvod\action\DisplayCommentaireAction;
 use iutnc\netvod\action\DisplayEpisodeAction;
 use iutnc\netvod\action\DisplaySerieAction;
+use iutnc\netvod\action\DisplaySerieDejaVisionneAction;
 use iutnc\netvod\action\DisplaySerieEnCoursAction;
 use iutnc\netvod\action\DisplaySeriePrefAction;
 use iutnc\netvod\action\LogoutAction;
@@ -83,6 +84,11 @@ class Dispatcher{
             case "displaySerieEnCours":
                 $serieEnCours = new DisplaySerieEnCoursAction();
                 $res = $serieEnCours->execute();
+                break;
+
+            case "displaySerieDejaVisionne":
+                $serieDejaVisionne = new DisplaySerieDejaVisionneAction();
+                $res = $serieDejaVisionne->execute();
                 break;
 
             case "displayCommentaire":

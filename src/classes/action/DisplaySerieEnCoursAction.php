@@ -5,7 +5,7 @@ namespace iutnc\netvod\action;
 use iutnc\netvod\appli\Serie;
 use iutnc\netvod\db\ConnectionFactory;
 
-class DisplaySerieEnCoursAction
+class   DisplaySerieEnCoursAction
 {
     public function execute(): string
     {
@@ -19,7 +19,7 @@ class DisplaySerieEnCoursAction
             $get->bindParam(':email', $email);
             $get->execute();
             $infoUser = $get->fetch();
-            $query = "select id, titre, img from serie inner join serieEnCoursUser on serie.id = serieEnCoursUser.idSerie where id = idSerie and iduser =:iduser";
+            $query = "select id, titre, img from serie inner join serieEnCours on serie.id = serieEnCours.idSerie where id = idSerie and iduser =:iduser";
             $get = $bd->prepare($query);
             $get->bindParam(':iduser', $infoUser['id']);
             $get->execute();
