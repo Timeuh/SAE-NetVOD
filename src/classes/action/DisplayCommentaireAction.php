@@ -8,7 +8,7 @@ class DisplayCommentaireAction extends Action {
 
     public function execute(): string {
         $idSerie = unserialize($_SESSION["idSerie"]);
-        $html ="<a href='?action=displaySerie&id=$idSerie'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</button></a><br>";
+        $html ="<a href='?action=displaySerie&id=$idSerie'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</button></a><br><br>";
 
         if (($db = ConnectionFactory::makeConnection()) != null ){
             $query = "SELECT email, commentaire FROM commentaire
@@ -30,7 +30,7 @@ class DisplayCommentaireAction extends Action {
                 $data2 = $stmt2->fetch();
 
                 if ($data2['nom'] == null || $data2['prenom'] == null) {
-                    $html = $html . "Inconnu a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
+                    $html = $html . "<p>Inconnu a commenté : ". "<br><span class='text-yellow-500'>" . $data['commentaire'] . "</span></p><br> <br>";
                 } else {
                     $html = $html . $data2['nom'] . " " . $data2['prenom'] . " a commenté : ". "<br>" . $data['commentaire'] . "<br> <br>";
                 }

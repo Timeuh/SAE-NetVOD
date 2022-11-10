@@ -17,10 +17,10 @@ class DelPrefAction extends Action
             $delete = $bd->prepare("delete from seriepref where idUser = ? and idSerie = ?");
             $delete->bindParam(1,$idUser);
             $delete->bindParam(2,$idSerie);
-            if($delete->execute()) return "<p>Votre série a bien été retirée de votre liste des préférences</p>
-                                                <br><a href='?action=displayCatalogue'>Retour au catalogue</a></br>";
+            if($delete->execute()) return "<a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour au catalogue</a><br> <br>
+                                           <p>Votre série a bien été retirée de votre liste des préférences</p>";
         }
-        return "<p>Il y a eu un problème lors du retrait de la série de votre liste des préférences,
-                veuillez réessayer</p><br><a href='?action=displayCatalogue'>Retour au catalogue</a></br>";
+        return "<a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour au catalogue</a></br> <br>
+                <p>Il y a eu un problème lors du retrait de la série de votre liste des préférences,veuillez réessayer</p>";
     }
 }

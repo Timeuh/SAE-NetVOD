@@ -23,12 +23,12 @@ class AddPrefAction extends \iutnc\netvod\action\Action
                 $insert = $bd->prepare("insert into seriepref(idUser, idSerie) values (?,?)");
                 $insert->bindParam(1,$idUser);
                 $insert->bindParam(2,$idSerie);
-                if($insert->execute()) return "<p>Votre série a bien été ajoutée à votre liste des préférences</p>
-                                                <br><a href='?action=displayCatalogue'>Retour au catalogue</a></br>";
-            }else return "<p>Vous avez déjà ajouté cette série à votre liste des préférences</p>
-                            <br><a href='?action=displayCatalogue'>Retour au catalogue</a></br>";
+                if($insert->execute()) return "<a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour au catalogue</a> </br> <br>
+                                               <p>Votre série a bien été ajoutée à votre liste des préférences</p>";
+            }else return "<a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour au catalogue</a></br> <br>
+                          <p>Vous avez déjà ajouté cette série à votre liste des préférences</p>";
         }
-        return "<p>Il y a eu un problème lors de l'ajout de la série dans votre liste des préférences,
-                veuillez réessayer</p><br><a href='?action=displayCatalogue'>Retour au catalogue</a></br>";
+        return "<a href='?action=displayCatalogue'>Retour au catalogue</a><br> <br>
+                <p>Il y a eu un problème lors de l'ajout de la série dans votre liste des préférences, veuillez réessayer</p>";
     }
 }

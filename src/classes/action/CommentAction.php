@@ -24,16 +24,16 @@ class CommentAction extends Action{
 
                     $data = $qry->fetch();
 
-                    return "<h3>Commenter la série : {$data['titre']}</h3>
+                    return "<a href='?action=displayEpisode&id=$ep' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</a> <br> <br>
+                            <h3>Commenter la série : {$data['titre']}</h3>
                             <form method='post' action='?action=comment&serie=$serie'>
-                                <input type='number' name='note' placeholder='note (entre 1 et 5)' required><br>
-                                <textarea name='commentaire' placeholder='commentaire (256 charactères max)' required></textarea>
-                                <br><button type='submit'>Poster</button>
-                            </form><br>
-                            <a href='?action=displayEpisode&id=$ep'>Retour</a>";
+                                <input type='number' name='note' placeholder='note (entre 1 et 5)' required class='text-black border-2 rounded-md border-yellow-500 mb-4'><br>
+                                <textarea name='commentaire' placeholder='commentaire (256 charactères max)' required class='text-black border-2 rounded-md border-yellow-500 mb-4'></textarea>
+                                <br><button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Poster</button>
+                            </form><br>";
                 }
             }
-            return "<h3>Cet épisode n'existe pas</h3><br><a href='?action=displayCatalogue'>Retour au catalogue</a>";
+            return "<a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour au catalogue</a><br><br><h3>Cet épisode n'existe pas</h3>";
         } else {
             $serie = $_GET['serie'] ?? 0;
             if ($serie != 0){
@@ -57,9 +57,9 @@ class CommentAction extends Action{
                         $insert->bindParam(':note', $note);
                         $insert->bindParam(':commentaire', $commentaire);
 
-                        if($insert->execute()) return "<h3>Commentaire ajouté</h3><br><a href='?action=displayCatalogue'>Retour au catalogue</a";
-                        else return "<h3>Commentaire non ajouté</h3><br><a href='?action=comment&serie=$serie'>Réessayer</a>";
-                    } else return "<h3>Vous avez déjà commenté cette série</h3><br><a href='?action=displayCatalogue'>Retour au catalogue</a>";
+                        if($insert->execute()) return "<a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour au catalogue</a><br><br><h3>Commentaire ajouté</h3>";
+                        else return "<a href='?action=comment&serie=$serie' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Réessayer</a><br><br><h3>Commentaire non ajouté</h3>";
+                    } else return "<a href='?action=displayCatalogue' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour au catalogue</a><br><br><h3>Vous avez déjà commenté cette série</h3>";
                 }
             }
             return "<h3>Cet épisode n'existe pas</h3><br><a href='?action=displayCatalogue'>Retour au catalogue</a>";
