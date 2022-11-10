@@ -33,7 +33,7 @@ class Episode
     }
 
     public function render(string $image) : string {
-        return "<a href='?action=displayEpisode&id=$this->id'>Epidode $this->numero : $this->titre </a>
-                <br>$this->duree minutes<br><img src='img/$image' width='150' height='150' alt='illustration de la vidéo'>";
+        return "<a href='?action=displayEpisode&id=$this->id'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Episode $this->numero : $this->titre </button></a>
+                <br><p class='ml-6'>$this->duree minutes</p><img src='img/$image' width='400' height='400' alt='illustration de la vidéo' class='ml-6'>";
     }
 }

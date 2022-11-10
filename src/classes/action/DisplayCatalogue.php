@@ -44,7 +44,7 @@ class DisplayCatalogue extends Action {
                             <option value='public'>Filtrer par public</option>
                         </select>
                         <input type='text' name='result' placeholder='champ' required class='text-black'>
-                        <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Filtrer</button> <br> <br>
+                        <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mt-1'>Filtrer</button> <br> <br>
                       </form>";
     }
 
@@ -77,7 +77,7 @@ class DisplayCatalogue extends Action {
             if ($sort != "nbEp") {
                 while ($data = $req->fetch()) {
                     $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='400' height='400'>
-                        <a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
+                        <a href='?action=displaySerie&id=" . $data["id"] . "'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mt-1'>" . $data["titre"] . "</button> </a> <br> <br>";
                 }
                 return $html;
             } else {
@@ -88,7 +88,7 @@ class DisplayCatalogue extends Action {
 
                     $res = $qr->fetch();
                     $html = $html . "<img class='img-serie' src='" . "img/" . $res["img"] . "' width='400' height='400'>
-                        <a href='?action=displaySerie&id=" . $res["id"] . "'>" . $res["titre"] . "</a> <br>";
+                        <a href='?action=displaySerie&id=" . $res["id"] . "'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 mt-1'>" . $res["titre"] . "</button> </a> <br> <br>";
                 }
                 return $html;
             }
@@ -119,7 +119,7 @@ class DisplayCatalogue extends Action {
 
             while ($data = $req->fetch()) {
                 $html = $html . "<img class='img-serie' src='" . "img/" . $data["img"] . "' width='400' height='400'>
-                        <a href='?action=displaySerie&id=" . $data["id"] . "'>" . $data["titre"] . "</a> <br>";
+                        <a href='?action=displaySerie&id=" . $data["id"] . "'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>" . $data["titre"] . "</button> </a> <br> <br>";
             }
             return $html;
         }
