@@ -21,14 +21,10 @@ class SigninAction extends Action {
             $passwd = $_POST['password'];
             $user = Auth::authenticate($email, $passwd);
             if ($user != null) {
-                $html = "<p>Vous êtes connecté(e)</p>
-                         <a href='?action=modifierProfil'>Modifier Profil</a> <br> <br>
-                         <a href='?action=displayCatalogue'>Catalogue</a> <br> <br>
-                         <a href='?action=displaySeriePref'>Séries Favorites</a> <br> <br>
-                         <a href='?action=displaySerieEnCours'>Séries En Cours</a> <br> <br>
-                         <a href='?action=logout'>Deconnexion</a>";
+                $html = "<script>document.location.href='index.php'</script>";
             } else {
-                $html = "Votre email ou mot de passe est incorrect ou votre compte n est pas actif";
+
+                $html = "<p>Votre email ou mot de passe est incorrect</p><br><a href='index.php'>Accueil</a>";
             }
         }
         return $html;

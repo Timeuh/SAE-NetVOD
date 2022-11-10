@@ -121,7 +121,7 @@ class Dispatcher{
                                                       <a href='?action=logout' class='underline hover:no-underline hover:text-yellow-400'>Deconnexion</a>
                                                       </nav>";
 
-                else $res = "<h1 class='text-center text-2xl'>Bienvenue !</h1>
+                else $res = "<h1 class='text-center text-4xl mb-8'>Bienvenue !</h1>
                         <nav class='text-center'>
                         <a href='index.php' class='underline hover:no-underline hover:text-yellow-400'>Accueil</a> 
                         <br><br><a href='?action=signin' class='underline hover:no-underline hover:text-yellow-400'> Connexion </a><br><br>

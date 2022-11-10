@@ -10,7 +10,7 @@ class Auth {
     public static function authenticate(string $email, string $password): ?User {
         $pdo = ConnectionFactory::makeConnection();
         if (!filter_var($email, FILTER_SANITIZE_EMAIL)) return null;
-        $getPass = "select passwd, role from user where email = :email";
+        $getPass = "select passwd, role , active from user where email = :email";
         $req = $pdo->prepare($getPass);
         $req->bindParam(':email', $email);
         $req->execute();
@@ -18,7 +18,8 @@ class Auth {
         while ($data = $req->fetch()) {
             $bdHash = $data['passwd'];
             $role = $data['role'];
-            if (password_verify($password, $bdHash)){
+            $actif = $data['active'];
+            if (password_verify($password, $bdHash) && $actif === 1){
                 $user = new User($email, $bdHash, $role);
                 $user->setId();
                 $_SESSION['user'] = serialize($user);
@@ -37,13 +38,31 @@ class Auth {
             $get->bindParam(':email', $email);
             $get->execute();
             if (!$get->fetch()) {
+
+                // Token d'activation de compte
+                $active = 0;
+                $activateToken = bin2hex(random_bytes(64));
+                $renewToken = bin2hex(random_bytes(64));
+                $activationExpires = date('Y-m-d H:i:s',time() + 60*60);
+                $activationRenew = date('Y-m-d H:i:s',time() + 60*15);
+
                 $newPass = password_hash($password, PASSWORD_DEFAULT, ['cost' => 12]);
-                $insert = "insert into user(email, passwd) values(:email, :password)";
+                $insert = "insert into user(email, passwd, active, activation_token, activation_expires, renew_token, renew_expires) 
+                           values(:email, :password, :active, :actiT, :actiE, :renewT, :renewE)";
                 $do = $bd->prepare($insert);
 
                 $do->bindParam(':email', $email);
                 $do->bindParam(':password', $newPass);
+                $do->bindParam(':active', $active);
+                $do->bindParam(':actiT', $activateToken);
+                $do->bindParam(':actiE', $activationExpires);
+                $do->bindParam(':renewT', $renewToken);
+                $do->bindParam(':renewE', $activationRenew);
+
                 $do->execute();
+
+                $_SESSION['token'] = $activateToken;
+
                 return true;
             }
         }
