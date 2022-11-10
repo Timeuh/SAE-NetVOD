@@ -10,11 +10,14 @@ class SigninAction extends Action {
         $html = "";
         if($this->http_method === "GET") {
             $html = "
-                <form method='post'>
-                    <label>Email: </label><input type='text' name='email' placeholder='toto@gmail.com' required class='text-black border-2 rounded-md border-yellow-500'>
-                    <label>Password: </label><input type='password' name='password' placeholder='example' required class='text-black border-2 rounded-md border-yellow-500'>
+                <div class='text-center'>
+                <form method='post' class='text-center'>
+                    <label>Identifiant : </label><input type='email' name='email' placeholder='toto@gmail.com' required class='text-black border-2 rounded-md border-yellow-500'>
+                    <label>Mot de passe : </label><input type='password' name='password' placeholder='mot de passe' required class='text-black border-2 rounded-md border-yellow-500'>
                     <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Valider</button>
-                </form>";
+                </form>
+                <br><a href='index.php' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a>
+                </div>";
         }
         elseif ($this->http_method === "POST") {
             $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -23,7 +26,10 @@ class SigninAction extends Action {
             if ($user != null) {
                 $html = "<script>document.location.href='index.php'</script>";
             } else {
-                $html = "<p>Votre email ou mot de passe est incorrect</p><br><a href='index.php'>Accueil</a>";
+                $html = "<div class='text-center text-red-600'>
+                <p class='text-2xl '>Votre email ou mot de passe est incorrect</p><br>
+                <a href='?action=signin' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600 text-white'>Retour</a>
+                </div>";
             }
         }
         return $html;
