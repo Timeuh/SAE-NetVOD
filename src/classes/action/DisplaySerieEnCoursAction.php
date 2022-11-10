@@ -9,7 +9,7 @@ class DisplaySerieEnCoursAction
 {
     public function execute(): string
     {
-        $html = "<a href='?action='> Accueil </a> <br> <br>";
+        $html = "<a href='?action=' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'> Accueil </a> <br> <br>";
         $bd = ConnectionFactory::makeConnection();
         if ($bd != null){
             $user = unserialize($_SESSION['user']);

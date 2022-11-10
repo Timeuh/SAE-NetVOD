@@ -135,7 +135,7 @@ class Dispatcher{
         <link rel='icon' type='image/png' href='$this->icon'>
         </head> 
         <body class='text-white'>
-        <div id='title' class='bg-gradient-to-r from-yellow-500 to-black flex'>
+        <div id='title' class='bg-gradient-to-r from-yellow-500 to-black flex mb-2'>
             <img src='$this->icon' alt='logo du site'/>
             <h1 class='text-6xl text-white'>NetVOD</h1>
         </div>

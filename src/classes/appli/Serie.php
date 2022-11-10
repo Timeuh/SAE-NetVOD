@@ -106,9 +106,9 @@ class Serie
                     
                     Note : $moy /5<br> <br>
 
-                    <a href='?action=displayCommentaire'>Afficher Commentaire</a> <br> <br>
-                    <a href='?action=add-pref'><button>Ajouter aux favoris</button></a>$delButton
-                    <br><a href='?action=displayCatalogue'><button>Retour</button></a>
+                    <a href='?action=displayCommentaire'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Afficher Commentaire</button></a> <br> <br>
+                    <a href='?action=add-pref'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Ajouter aux favoris</button></a>$delButton <br>
+                    <br><a href='?action=displayCatalogue'><button class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour</button></a>
                     <h3>Épisodes :</h3>$list
                 </div>";
     }

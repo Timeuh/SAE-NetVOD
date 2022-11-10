@@ -13,7 +13,7 @@ class DisplaySeriePrefAction extends Action
         $user = unserialize($_SESSION['user']);
         $email = $user->__get("email");
 
-        $html = "<a href='?action='> Accueil </a> <br> <br>";
+        $html = "<a href='?action=' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'> Accueil </a> <br> <br>";
 
         $db = ConnectionFactory::makeConnection();
 
