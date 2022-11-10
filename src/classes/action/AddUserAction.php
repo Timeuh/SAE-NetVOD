@@ -13,12 +13,12 @@ class AddUserAction extends Action
             $html = <<<EOF
                 <form id="form" method="post" action="?action=add-user">
                     <label for="form_email">Email:</label>
-                    <input type="email" id="form_email" name="email" placeholder="<email>" required>
+                    <input type="email" id="form_email" name="email" placeholder="<email>" required class='border-2 rounded-md border-yellow-500 text-black'>
                     <label for="form_mdp">Mot de passe:</label>
-                    <input type="password" id="form_mdp" name="password" placeholder="<mot de passe>" required>
+                    <input type="password" id="form_mdp" name="password" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black'>
                     <label for="form_confirm">Confirmation du mot de passe:</label>
-                    <input type="password" id="form_confirm" name="confirm" placeholder="<mot de passe>" required>
-                    <button type="submit">S'inscrire</button>
+                    <input type="password" id="form_confirm" name="confirm" placeholder="<mot de passe>" required class='border-2 rounded-md border-yellow-500 text-black'>
+                    <button type="submit" class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>S'inscrire</button>
             </form>
             EOF;
         }elseif ($_SERVER['REQUEST_METHOD']==="POST"){
