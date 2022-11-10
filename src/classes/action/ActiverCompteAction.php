@@ -17,7 +17,7 @@ class ActiverCompteAction extends Action
             if ($this->http_method === "GET"){
 
                 $html .= "<form method='post'> 
-                                <button type='submit'>Activer le compte</button>
+                                <button type='submit' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Activer le compte</button>
                           </form>";
 
             } elseif($this->http_method === "POST"){
@@ -40,8 +40,8 @@ class ActiverCompteAction extends Action
 
                     $html .= "<script>document.location.href='?action='</script>";
                 } else {
-                    $html .= "Aucun compte ne doit être activé pour le moment <br> <br>
-                              <a href='?action='>Retour à Accueil</a>" ;
+                    $html .= "<a href='?action=' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Retour à Accueil</a><br><br>
+                              Aucun compte ne doit être activé pour le moment";
                 }
 
             } else {

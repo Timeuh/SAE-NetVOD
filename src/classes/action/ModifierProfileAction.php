@@ -25,7 +25,7 @@ class ModifierProfileAction extends Action
 
             $data = $stmt->fetch();
 
-            $html ="<a href='?action=' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a> <br> <br> Information de base : <br> <br> Prenom : " . $data['prenom'] . "<br> Nom : " . $data['nom'] . "<br> Genre Préféré : " . $data['genrePref'] . "<br> <br>";
+            $html ="<a href='?action=' class='border-2 rounded-md bg-yellow-500 border-yellow-500 hover:bg-yellow-600'>Accueil</a> <br> <br> Information de base : <br> <br> Prenom : <span class='text-yellow-500'>" . $data['prenom'] . "</span><br> Nom : <span class='text-yellow-500'>" . $data['nom'] . "</span><br> Genre Préféré : <span class='text-yellow-500'>" . $data['genrePref'] . "</span><br> <br>";
 
             if ($this->http_method === "GET"){
                 $html .= "<form method='post'>
